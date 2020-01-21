@@ -42,6 +42,7 @@
   },
   "homepage": "https://github.com/rocketbase-io/vue-skeleton-key#readme",
   "dependencies": {
+    "@rocketbase/skeleton-key": "^0.4.5",
     "@rocketbase/vue-extra-decorators": "^2.0.9",
     "vue": "^2.6.11"
   },
@@ -52,6 +53,8 @@
     "@microsoft/api-extractor": "^7.7.5",
     "@types/jest": "^24.9.0",
     "@types/lodash": "^4.14.149",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
     "@vue/cli-plugin-eslint": "^4.1.2",
     "@vue/cli-plugin-typescript": "^4.1.2",
     "@vue/cli-plugin-unit-jest": "^4.1.2",
