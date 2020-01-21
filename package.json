@@ -1,0 +1,86 @@
+{
+  "name": "@rocketbase/vue-skeleton-key",
+  "version": "0.0.0",
+  "description": "Vue Wrapper for @rocketbase/skeleton-key",
+  "main": "dist/VueSkeletonKey.cjs.js",
+  "module": "dist/VueSkeletonKey.esm.js",
+  "unpkg": "dist/VueSkeletonKey.umd.js",
+  "types": "dist/VueSkeletonKey.d.ts",
+  "since": "2020",
+  "files": [
+    "dist",
+    "LICENSE.md"
+  ],
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "npm run build:ts && npm run build:dts",
+    "build:ts": "rollup --config build/rollup.config.js",
+    "build:dts": "rimraf dist/*.*.d.ts",
+    "clean": "rimraf dist temp docs",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
+    "lint:fix": "vue-cli-service lint --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rocketbase-io/vue-skeleton-key.git"
+  },
+  "keywords": [
+    "vue",
+    "skeleton-key",
+    "skeleton",
+    "key",
+    "rocketbase"
+  ],
+  "author": "Rocketbase Team <team@rocketbase.io>",
+  "contributors": [
+    "Merlin Reichwald <merlin.reichwald@rocketbase.io>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rocketbase-io/vue-skeleton-key/issues"
+  },
+  "homepage": "https://github.com/rocketbase-io/vue-skeleton-key#readme",
+  "dependencies": {
+    "@rocketbase/vue-extra-decorators": "^2.0.9",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@microsoft/api-documenter": "^7.7.8",
+    "@microsoft/api-extractor": "^7.7.5",
+    "@types/jest": "^24.9.0",
+    "@types/lodash": "^4.14.149",
+    "@vue/cli-plugin-eslint": "^4.1.2",
+    "@vue/cli-plugin-typescript": "^4.1.2",
+    "@vue/cli-plugin-unit-jest": "^4.1.2",
+    "@vue/cli-service": "^4.1.2",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^5.0.1",
+    "@vue/test-utils": "^1.0.0-beta.31",
+    "@wessberg/rollup-plugin-ts": "^1.2.13",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-vue": "^6.1.2",
+    "lint-staged": "^10.0.1",
+    "lodash": "^4.17.15",
+    "prettier": "^1.19.1",
+    "rollup": "^1.29.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-sourcemaps": "^0.5.0",
+    "rollup-plugin-ts-paths": "^1.0.3",
+    "typescript": "^3.7.5",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -e -V"
+  },
+  "lint-staged": {
+    "*.{js,vue,ts}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
