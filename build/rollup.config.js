@@ -4,6 +4,7 @@ import ts from "@wessberg/rollup-plugin-ts";
 import paths from "rollup-plugin-ts-paths";
 import apiExtractor from "./rollup-plugin-api-extractor";
 import execute from "./rollup-plugin-execute";
+import sequential from "./rollup-plugin-sequential";
 import { name, globals, external } from "./package";
 import banner from "./banner";
 
@@ -24,10 +25,22 @@ export default {
     ts({ tsconfig: "tsconfig.build.json" }),
     sourcemaps(),
     commonjs(),
-    apiExtractor({ config: "build/api-extractor.json", override: { name }, cleanup: false }),
-    execute([
-      "api-documenter markdown --output-folder docs --input-folder dist",
-      "rimraf temp api-extractor.json"
-    ], { stdio: "ignore" })
+    sequential(
+      [
+        apiExtractor({
+          config: "build/api-extractor.json",
+          override: { name },
+          cleanup: false
+        }),
+        execute(
+          [
+            "api-documenter markdown --output-folder docs --input-folder dist",
+            "rimraf temp api-extractor.json"
+          ],
+          { stdio: "ignore" }
+        )
+      ],
+      { once: true }
+    )
   ]
 };

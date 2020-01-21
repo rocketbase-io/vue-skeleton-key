@@ -4,9 +4,9 @@
 
 ## vue-skeleton-key package
 
-## Variables
+## Functions
 
-|  Variable | Description |
+|  Function | Description |
 |  --- | --- |
-|  [TEST](./vue-skeleton-key.test.md) |  |
+|  [VueSkeletonKey(vue, options)](./vue-skeleton-key.vueskeletonkey.md) | Vue Wrapper for @<!-- -->rocketbase/skeleton-key |
 

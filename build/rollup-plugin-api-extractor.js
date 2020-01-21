@@ -3,13 +3,19 @@ import { template } from "lodash";
 import { Extractor, ExtractorConfig } from "@microsoft/api-extractor";
 
 const apiExtractor = async (config, override, { cleanup }) => {
-  if (typeof override === "string") override = await fs.readFile(override)
-    .then(it => it.toString("utf8"))
-    .then(it => JSON.parse(it));
-  if (typeof config === "string") config = await fs.readFile(config)
-    .then(it => it.toString("utf8"))
-    .then(it => typeof override === "object" ? template(it)({...override}) : it)
-    .then(it => JSON.parse(it));
+  if (typeof override === "string")
+    override = await fs
+      .readFile(override)
+      .then(it => it.toString("utf8"))
+      .then(it => JSON.parse(it));
+  if (typeof config === "string")
+    config = await fs
+      .readFile(config)
+      .then(it => it.toString("utf8"))
+      .then(it =>
+        typeof override === "object" ? template(it)({ ...override }) : it
+      )
+      .then(it => JSON.parse(it));
   config = typeof override === "function" ? await override(config) : config;
 
   await fs.writeFile("api-extractor.json", JSON.stringify(config, null, 2));
@@ -22,6 +28,17 @@ const apiExtractor = async (config, override, { cleanup }) => {
   process.exitCode = result.succeeded ? 0 : 1;
 };
 
-export default ({ config = "config/api-extractor.json", override = "package.json", cleanup = true } = {}) => ({
-  buildEnd: err => err ? null : apiExtractor(config, override, { cleanup })
-});
+export default ({
+  config = "config/api-extractor.json",
+  override = "package.json",
+  cleanup = true
+} = {}) => {
+  let ranBefore = false;
+  return {
+    writeBundle() {
+      if (ranBefore) return;
+      ranBefore = true;
+      return apiExtractor(config, override, { cleanup });
+    }
+  };
+};
