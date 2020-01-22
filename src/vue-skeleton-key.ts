@@ -2,6 +2,7 @@ import Vue from "vue";
 import { SkeletonKey, SkeletonKeyOptions } from "@rocketbase/skeleton-key";
 import { VueSkeletonKeyAuth } from "src/vue-skeleton-key-auth";
 import { instances } from "src/instances";
+import { linkProperties } from "src/link-properties";
 
 /**
  * Vue Wrapper for @rocketbase/skeleton-key
@@ -39,16 +40,7 @@ export function VueSkeletonKey<UserExtension, TokenExtension>(
   const { auth, vue: instance } = instances;
 
   // Create proxies for auth methods, getters
-  Object.entries(
-    Object.getOwnPropertyDescriptors(SkeletonKey.prototype)
-  ).forEach(([key, desc]) => {
-    Object.defineProperty(instance, key, {
-      get() {
-        if (desc.get) return (auth as any)[key];
-        if (desc.value) return desc.value.bind(auth);
-      }
-    });
-  });
+  linkProperties(auth, instance);
 
   // Create accessor for original skeleton key auth
   Object.defineProperty(instance, "$skeletonKey", {
