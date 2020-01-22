@@ -93,5 +93,8 @@
       "vue-cli-service lint",
       "git add"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
