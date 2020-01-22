@@ -50,12 +50,18 @@ export function VueSkeletonKey<UserExtension, TokenExtension>(
     });
   });
 
+  // Create accessor for original skeleton key auth
+  Object.defineProperty(instance, "$skeletonKey", {
+    get: () => instances.auth
+  });
+
   // Create bindings for event handlers to vue event handlers, refresh data attributes
   ["action", "login", "logout", "refresh"].forEach(event =>
     auth.on(event as any, (...params: any[]) => {
-      instance.user = auth.userData || (null as any);
-      instance.token = auth.tokenData || null;
-      instance.refreshToken = auth.refreshTokenData || null;
+      const hasData = auth.jwtBundle && auth.user;
+      instance.user = hasData ? auth.userData : null;
+      instance.token = hasData ? auth.tokenData : null;
+      instance.refreshToken = hasData ? auth.refreshTokenData : null;
       instance.$emit(event, ...params);
     })
   );

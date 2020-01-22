@@ -11,6 +11,7 @@ export * from "src/vue-skeleton-key-auth";
 
 declare module "vue/types/vue" {
   export interface Vue {
-    $auth: VueSkeletonKeyAuth<any, any> & SkeletonKey<any, any>;
+    $auth: VueSkeletonKeyAuth<any, any> &
+      SkeletonKey<any, any> & { $skeletonKey: SkeletonKey<any, any> };
   }
 }
