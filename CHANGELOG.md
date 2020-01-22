@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.0...v1.0.1) (2020-01-22)
+
+
+### Bug Fixes
+
+* add publish config to package.json for travis deploy ([d2788f7](https://github.com/rocketbase-io/vue-skeleton-key/commit/d2788f7ecae5d59558af2bd213f46998df2d63e9))
+
 # 1.0.0 (2020-01-22)
 
 
