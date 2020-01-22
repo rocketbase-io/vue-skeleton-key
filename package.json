@@ -1,6 +1,6 @@
 {
   "name": "@rocketbase/vue-skeleton-key",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "description": "Vue Wrapper for @rocketbase/skeleton-key",
   "main": "dist/VueSkeletonKey.cjs.js",
   "module": "dist/VueSkeletonKey.esm.js",
@@ -16,14 +16,15 @@
     "build": "npm run build:ts && npm run build:dts",
     "build:ts": "rollup --config build/rollup.config.js",
     "build:dts": "rimraf dist/*.*.d.ts",
-    "clean": "rimraf dist temp docs",
+    "clean": "rimraf dist temp docs coverage",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "lint:fix": "vue-cli-service lint --fix"
+    "lint:fix": "vue-cli-service lint --fix",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rocketbase-io/vue-skeleton-key.git"
+    "url": "https://github.com/rocketbase-io/vue-skeleton-key.git"
   },
   "keywords": [
     "vue",
@@ -51,6 +52,12 @@
     "@commitlint/config-conventional": "^8.3.4",
     "@microsoft/api-documenter": "^7.7.8",
     "@microsoft/api-extractor": "^7.7.5",
+    "@semantic-release/changelog": "^3.0.6",
+    "@semantic-release/commit-analyzer": "^7.0.0",
+    "@semantic-release/git": "^8.0.0",
+    "@semantic-release/github": "^6.0.1",
+    "@semantic-release/npm": "^6.0.0",
+    "@semantic-release/release-notes-generator": "^7.3.5",
     "@types/jest": "^24.9.0",
     "@types/lodash": "^4.14.149",
     "@typescript-eslint/eslint-plugin": "^2.17.0",
@@ -73,6 +80,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-sourcemaps": "^0.5.0",
     "rollup-plugin-ts-paths": "^1.0.3",
+    "semantic-release": "^16.0.2",
     "typescript": "^3.7.5",
     "vue-template-compiler": "^2.6.11"
   },

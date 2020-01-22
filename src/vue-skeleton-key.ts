@@ -2,6 +2,7 @@ import Vue from "vue";
 import { SkeletonKey, SkeletonKeyOptions } from "@rocketbase/skeleton-key";
 import { VueSkeletonKeyAuth } from "src/vue-skeleton-key-auth";
 import { instances } from "src/instances";
+import { linkProperties } from "src/link-properties";
 
 /**
  * Vue Wrapper for @rocketbase/skeleton-key
@@ -39,23 +40,20 @@ export function VueSkeletonKey<UserExtension, TokenExtension>(
   const { auth, vue: instance } = instances;
 
   // Create proxies for auth methods, getters
-  Object.entries(
-    Object.getOwnPropertyDescriptors(SkeletonKey.prototype)
-  ).forEach(([key, desc]) => {
-    Object.defineProperty(instance, key, {
-      get() {
-        if (desc.get) return (auth as any)[key];
-        if (desc.value) return desc.value.bind(auth);
-      }
-    });
+  linkProperties(auth, instance);
+
+  // Create accessor for original skeleton key auth
+  Object.defineProperty(instance, "$skeletonKey", {
+    get: () => instances.auth
   });
 
   // Create bindings for event handlers to vue event handlers, refresh data attributes
   ["action", "login", "logout", "refresh"].forEach(event =>
     auth.on(event as any, (...params: any[]) => {
-      instance.user = auth.userData || (null as any);
-      instance.token = auth.tokenData || null;
-      instance.refreshToken = auth.refreshTokenData || null;
+      const hasData = auth.jwtBundle && auth.user;
+      instance.user = hasData ? auth.userData : null;
+      instance.token = hasData ? auth.tokenData : null;
+      instance.refreshToken = hasData ? auth.refreshTokenData : null;
       instance.$emit(event, ...params);
     })
   );

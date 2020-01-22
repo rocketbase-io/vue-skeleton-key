@@ -9,10 +9,20 @@ import { instances } from "src/instances";
  */
 @Component
 export class VueSkeletonKeyAuth<UserExtension, TokenExtension> extends Vue {
-  @Data({ default: () => instances.auth?.userData || null })
-  public user!: AppUserRead & UserExtension;
-  @Data({ default: () => instances.auth?.tokenData || null })
-  public token!: JsonWebToken & { payload: TokenExtension };
-  @Data({ default: () => instances.auth?.refreshTokenData || null })
-  public refreshToken!: JsonWebToken;
+  @Data({
+    default: () => (instances.auth?.user && instances.auth.userData) || null
+  })
+  public user!: (AppUserRead & UserExtension) | null;
+  @Data({
+    default: () =>
+      (instances.auth?.jwtBundle?.token && instances.auth.tokenData) || null
+  })
+  public token!: (JsonWebToken & { payload: TokenExtension }) | null;
+  @Data({
+    default: () =>
+      (instances.auth?.jwtBundle?.refreshToken &&
+        instances.auth.refreshTokenData) ||
+      null
+  })
+  public refreshToken!: JsonWebToken | null;
 }
