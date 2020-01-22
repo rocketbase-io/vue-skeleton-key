@@ -16,7 +16,7 @@
     "build": "npm run build:ts && npm run build:dts",
     "build:ts": "rollup --config build/rollup.config.js",
     "build:dts": "rimraf dist/*.*.d.ts",
-    "clean": "rimraf dist temp docs",
+    "clean": "rimraf dist temp docs coverage",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "lint:fix": "vue-cli-service lint --fix",

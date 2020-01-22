@@ -1,5 +1,5 @@
 const tsconfig = require("./tsconfig.json");
-const { escapeRegExp } = require("lodash");
+const { escapeRegExp, entries, fromPairs } = require("lodash");
 const { paths } = tsconfig.compilerOptions;
 
 const keyToRegexp = key => `^${escapeRegExp(key).replace("\\*", "(.*)")}$`;
@@ -9,9 +9,7 @@ const entryMapper = ([key, value]) => [
   keyToRegexp(key),
   valueToPathMatcher(value)
 ];
-const moduleNameMapper = Object.fromEntries(
-  Object.entries(paths).map(entryMapper)
-);
+const moduleNameMapper = fromPairs(entries(paths).map(entryMapper));
 
 module.exports = {
   preset: "@vue/cli-plugin-unit-jest/presets/typescript",
