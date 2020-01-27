@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.1.0...v1.2.0) (2020-01-27)
+
+
+### Features
+
+* update skeleton-key ([2ee130e](https://github.com/rocketbase-io/vue-skeleton-key/commit/2ee130e1363543789179c0177f559ec319fb0be6))
+* update skeleton-key ([d25c298](https://github.com/rocketbase-io/vue-skeleton-key/commit/d25c298bc2b04409d2bee2e1d1a2b303e2088c4c))
+
 # [1.1.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.1...v1.1.0) (2020-01-27)
 
 
