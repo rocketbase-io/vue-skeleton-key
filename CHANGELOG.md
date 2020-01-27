@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.1...v1.1.0) (2020-01-27)
+
+
+### Features
+
+* empty packet, update skeleton-key, streamline build ([d400c7e](https://github.com/rocketbase-io/vue-skeleton-key/commit/d400c7e20913e56eb11072faf075915c2aa09d74))
+
 ## [1.0.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.0...v1.0.1) (2020-01-22)
 
 
