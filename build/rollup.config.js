@@ -2,9 +2,9 @@ import sourcemaps from "rollup-plugin-sourcemaps";
 import commonjs from "rollup-plugin-commonjs";
 import ts from "@wessberg/rollup-plugin-ts";
 import paths from "rollup-plugin-ts-paths";
-import apiExtractor from "./rollup-plugin-api-extractor";
-import execute from "./rollup-plugin-execute";
-import sequential from "./rollup-plugin-sequential";
+import apiExtractor from "@rocketbase/rollup-plugin-api-extractor";
+import execute from "@rocketbase/rollup-plugin-exec";
+import sequential from "@rocketbase/rollup-plugin-sequential";
 import { name, globals, external } from "./package";
 import banner from "./banner";
 

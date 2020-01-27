@@ -21,4 +21,7 @@ yarn-error.log*
 *.sw?
 
 # temporary generated config files
-api-extractor.json
+/api-extractor.json
+
+# test coverage
+/coverage
