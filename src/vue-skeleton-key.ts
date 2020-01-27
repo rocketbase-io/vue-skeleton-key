@@ -48,7 +48,7 @@ export function VueSkeletonKey<UserExtension, TokenExtension>(
   });
 
   // Create bindings for event handlers to vue event handlers, refresh data attributes
-  ["action", "login", "logout", "refresh"].forEach(event =>
+  ["action", "login", "logout", "refresh", "initialized"].forEach(event =>
     auth.on(event as any, (...params: any[]) => {
       const hasData = auth.jwtBundle && auth.user;
       instance.user = hasData ? auth.userData : null;
