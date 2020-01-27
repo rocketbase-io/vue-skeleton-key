@@ -1,5 +1,6 @@
 os: linux
 language: node_js
+cache: npm
 
 node_js:
   - 10
@@ -13,6 +14,7 @@ before_script:
 script:
   - npm install
   - npm build
+  - npm run lint
   - npm run test:unit
 
 after_script:
@@ -22,7 +24,10 @@ jobs:
   include:
     - stage: release
       node_js: lts/*
+      script:
+        - npm install
+        - npm run build
       deploy:
         provider: script
-        cleanup: false
-        script: npx -p @semantic-release/commit-analyzer -p @semantic-release/changelog -p @semantic-release/release-notes-generator -p @semantic-release/github -p @semantic-release/git -p @semantic-release/npm -p semantic-release semantic-release
+        skip_cleanup: true
+        script: npx semantic-release
