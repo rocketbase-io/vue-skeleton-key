@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.2.0...v1.3.0) (2020-01-27)
+
+
+### Features
+
+* update skeleton-key, provide default export ([7e13523](https://github.com/rocketbase-io/vue-skeleton-key/commit/7e1352342ffa065114dcffca3d1fdf7a29c6bffe))
+* update skeleton-key, provide default export ([c14b297](https://github.com/rocketbase-io/vue-skeleton-key/commit/c14b297b2db569774350b1330a1f72ea430305ec))
+
 # [1.2.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.1.0...v1.2.0) (2020-01-27)
 
 
