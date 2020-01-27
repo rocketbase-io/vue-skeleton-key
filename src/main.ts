@@ -1,8 +1,10 @@
 import { SkeletonKey } from "@rocketbase/skeleton-key";
 import { VueSkeletonKeyAuth } from "src/vue-skeleton-key-auth";
+import { VueSkeletonKey } from "src/vue-skeleton-key";
 
 export * from "src/vue-skeleton-key";
 export * from "src/vue-skeleton-key-auth";
+export default VueSkeletonKey;
 
 /**
  * Vue Wrapper for @rocketbase/skeleton-key
