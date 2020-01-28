@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.3.0...v1.4.0) (2020-01-28)
+
+
+### Features
+
+* bump skeleton key version ([6ef0488](https://github.com/rocketbase-io/vue-skeleton-key/commit/6ef048845a61566fed906b4d701d78e94f4270aa))
+
 # [1.3.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.2.0...v1.3.0) (2020-01-27)
 
 
