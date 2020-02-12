@@ -4,6 +4,8 @@ import { VueSkeletonKey } from "src/vue-skeleton-key";
 
 export * from "src/vue-skeleton-key";
 export * from "src/vue-skeleton-key-auth";
+export * from "src/components";
+export * from "src/forms";
 export default VueSkeletonKey;
 
 /**
@@ -13,7 +15,6 @@ export default VueSkeletonKey;
 
 declare module "vue/types/vue" {
   export interface Vue {
-    $auth: VueSkeletonKeyAuth<any, any> &
-      SkeletonKey<any, any> & { $skeletonKey: SkeletonKey<any, any> };
+    $auth: VueSkeletonKeyAuth<any, any> & SkeletonKey<any, any> & { $skeletonKey: SkeletonKey<any, any> };
   }
 }

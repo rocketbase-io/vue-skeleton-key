@@ -1,0 +1,109 @@
+$skeletonMgTiny = 2px
+$skeletonMgSmall = 4px
+$skeletonMgMedium = 6px
+$skeletonMgBig = 10px
+$skeletonMgHuge = 20px
+$skeletonBorder = 2px
+
+$skeletonFont = 'Arial', sans
+$skeletonFontSize = .8rem
+
+$skeletonColorWhite = ghostwhite
+$skeletonColorGray = lightgray
+$skeletonColorBlack = dimgrey
+$skeletonColorBlue = cornflowerblue
+$skeletonColorLightRed = lightcoral
+$skeletonColorRed = indianred
+$skeletonColorDarkRed = maroon
+
+.skeleton-input
+  position relative
+  font-family $skeletonFont
+  box-sizing border-box
+  padding 0
+  margin $skeletonMgBig $skeletonMgMedium
+  &__label
+    box-sizing border-box
+    font-size $skeletonFontSize
+    padding 0 $skeletonMgSmall
+  &__wrapper
+    box-sizing border-box
+    position relative
+    border $skeletonBorder solid $skeletonColorGray
+    border-radius $skeletonMgSmall
+    &:focus-within
+      border-color $skeletonColorBlue
+  &--invalid &__wrapper
+    border-color $skeletonColorRed
+    border-bottom-left-radius 0
+  &__inner
+    position relative
+    box-sizing border-box
+    border none
+    outline none
+    background transparent
+    padding $skeletonMgMedium $skeletonMgBig
+    width 100%
+    font-size $skeletonFontSize
+  &__messages
+    box-sizing border-box
+    display inline-block
+    min-width 30%
+    max-width 85%
+    padding $skeletonMgTiny $skeletonMgBig
+    border-bottom-left-radius $skeletonMgSmall
+    border-bottom-right-radius $skeletonMgSmall
+    background $skeletonColorRed
+    color $skeletonColorWhite
+    font-size $skeletonFontSize
+
+.skeleton-button
+  box-sizing border-box
+  position relative
+  display inline-block
+  outline none
+  background $skeletonColorGray
+  padding 0
+  margin $skeletonMgBig $skeletonMgMedium
+  border $skeletonBorder solid $skeletonColorGray
+  border-radius $skeletonMgSmall
+  color $skeletonColorBlack
+  font-family $skeletonFont
+  &[disabled]
+    opacity .6
+  &__inner
+    box-sizing border-box
+    position relative
+    margin $skeletonMgMedium $skeletonMgBig
+    font-size $skeletonFontSize
+  &:focus, &:hover
+    background lighten($skeletonColorGray, 20%)
+    border-color lighten($skeletonColorGray, 20%)
+  &--primary
+    color $skeletonColorWhite
+    background $skeletonColorBlue
+    border-color $skeletonColorBlue
+    &:focus, &:hover
+      background lighten($skeletonColorBlue, 20%)
+      border-color lighten($skeletonColorBlue, 20%)
+
+.skeleton-form
+  display block
+  font-family $skeletonFont
+  box-sizing border-box
+  position relative
+  &__footer
+    text-align right
+
+.skeleton-message
+  font-family $skeletonFont
+  box-sizing border-box
+  position relative
+  font-size $skeletonFontSize
+  color $skeletonColorDarkRed
+  background $skeletonColorLightRed
+  border $skeletonBorder solid $skeletonColorRed
+  border-radius $skeletonMgBig
+  padding $skeletonMgBig $skeletonMgHuge
+  margin $skeletonMgBig $skeletonMgMedium
+
