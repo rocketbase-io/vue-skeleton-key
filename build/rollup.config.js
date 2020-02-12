@@ -32,13 +32,7 @@ export default {
           override: { name },
           cleanup: false
         }),
-        execute(
-          [
-            "api-documenter markdown --output-folder docs --input-folder dist",
-            "rimraf temp api-extractor.json"
-          ],
-          { stdio: "ignore" }
-        )
+        execute(["api-documenter markdown --output-folder docs --input-folder dist", "rimraf temp api-extractor.json"], { stdio: "ignore" })
       ],
       { once: true }
     )

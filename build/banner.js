@@ -1,7 +1,7 @@
 import { template } from "lodash";
 import { pkg, year, name } from "./package";
 
-const opts = {...pkg, year, nameFormatted: name };
+const opts = { ...pkg, year, nameFormatted: name };
 
 export default template(`
 /**
