@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import Vue from "vue";
 import { LoginForm, RegisterForm, VerificationForm, VueSkeletonKey } from "src/main";
 
