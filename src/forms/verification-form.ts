@@ -1,4 +1,4 @@
-import { Component, Data, Watch } from "@rocketbase/vue-extra-decorators";
+import { On, Component, Data, Watch } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput } from "src/components";
 import Vue from "vue";
 import { AuthClient, ValidationResponse } from "@rocketbase/skeleton-key";
@@ -55,4 +55,7 @@ export class VerificationForm extends Vue {
         verification: this.errorFor(await this.client.validateToken(val))
       };
   }
+
+  @On("hook:mounted")
+  onMounted(this: Vue & any) {}
 }

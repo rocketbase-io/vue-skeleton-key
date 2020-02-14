@@ -24,7 +24,7 @@ const config: Configuration = {
   module: {
     rules: [
       {
-        test: /src\/dev-entry\.ts/,
+        test: /dev-entry\.ts/,
         use: [
           {
             loader: "webpack-rollup-loader",
