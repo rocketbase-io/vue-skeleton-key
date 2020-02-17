@@ -1,4 +1,4 @@
-import { ClassesKebap, Component, Data, Prop } from "@rocketbase/vue-extra-decorators";
+import { BProp, ClassesKebap, Component, Data, Prop } from "@rocketbase/vue-extra-decorators";
 import Vue from "vue";
 
 @Component({
@@ -46,12 +46,13 @@ export class SkeletonForm extends Vue {
   @Prop({ literal: {} }) public errors!: Record<string, string[]>;
   @Prop({ literal: {} }) public value!: Record<string, any>;
   @Prop({ literal: [] }) public required!: string[];
+  @BProp() public busy!: boolean;
   @Data({ sync: "value" }) private localValue!: Record<string, any>;
 
   @ClassesKebap()
   private get classes() {
-    const { valid, invalid } = this;
-    return { valid, invalid };
+    const { valid, invalid, busy } = this;
+    return { valid, invalid, busy };
   }
 
   public get errorArray() {

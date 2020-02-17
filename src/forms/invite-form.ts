@@ -11,7 +11,7 @@ import { AuthClient, ConfirmInviteRequest, ValidationResponse } from "@rocketbas
     SkeletonMessage
   },
   template: `
-    <skeleton-form v-model="value" :errors="errors" :required="['username', 'email', 'password', 'password2']" @submit="onSubmit">
+    <skeleton-form :busy="busy" v-model="value" :errors="errors" :required="['username', 'email', 'password', 'password2']" @submit="onSubmit">
       <template #header>
         <h3>Register</h3>
         <div v-if="invitor || message">
@@ -38,19 +38,23 @@ export class InviteForm extends Vue {
   @Data({ default: {} }) private errors!: any;
   @Data() private message!: string;
   @Data() private invitor!: string;
+  @Data() private busy!: boolean;
   @SProp() private inviteId!: string;
 
   private get client(): AuthClient {
-    return this.$auth.$skeletonKey.client;
+    return this.$auth.client;
   }
 
   private async onSubmit() {
     const { value } = this;
+    this.busy = true;
     try {
       await this.client.transformInviteToUser(value);
       this.errors = {};
     } catch ({ response }) {
       if (response.data && response.data.errors) this.errors = response.data.errors;
+    } finally {
+      this.busy = false;
     }
   }
 

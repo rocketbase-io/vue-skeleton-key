@@ -30,10 +30,7 @@ import { linkProperties } from "src/link-properties";
  * @param options - The options to pass to skeleton-key;
  * @public
  */
-export function VueSkeletonKey<UserExtension, TokenExtension>(
-  vue: typeof Vue,
-  options: SkeletonKeyOptions
-) {
+export function VueSkeletonKey<UserExtension, TokenExtension>(vue: typeof Vue, options: SkeletonKeyOptions) {
   // Assign singleton instances
   instances.auth = new SkeletonKey<UserExtension, TokenExtension>(options);
   instances.vue = new VueSkeletonKeyAuth<UserExtension, TokenExtension>();

@@ -11,7 +11,7 @@ import { AuthClient, RegistrationRequest, ValidationResponse } from "@rocketbase
     SkeletonMessage
   },
   template: `
-    <skeleton-form v-model="value" :errors="errors" :required="['username', 'email', 'password', 'password2']" @submit="onSubmit">
+    <skeleton-form :busy="busy" v-model="value" :errors="errors" :required="['username', 'email', 'password', 'password2']" @submit="onSubmit">
       <template #header>
         <h3>Register</h3>
       </template>
@@ -32,18 +32,22 @@ import { AuthClient, RegistrationRequest, ValidationResponse } from "@rocketbase
 export class RegisterForm extends Vue {
   @Data({ default: {} }) private value!: RegistrationRequest & { password2: string };
   @Data({ default: {} }) private errors!: any;
+  @Data() private busy!: boolean;
 
   private get client(): AuthClient {
-    return this.$auth.$skeletonKey.client;
+    return this.$auth.client;
   }
 
   private async onSubmit() {
     const { value } = this;
+    this.busy = true;
     try {
       await this.client.register(value);
       this.errors = {};
     } catch ({ response }) {
       if (response.data && response.data.errors) this.errors = response.data.errors;
+    } finally {
+      this.busy = false;
     }
   }
 

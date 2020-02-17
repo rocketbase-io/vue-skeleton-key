@@ -10,7 +10,7 @@ import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "sr
     SkeletonMessage
   },
   template: `
-    <skeleton-form v-model="value" @submit="onSubmit" :required="['username', 'password']">
+    <skeleton-form :busy="busy" v-model="value" @submit="onSubmit" :required="['username', 'password']">
       <template #header>
         <h3>Login</h3>
       </template>
@@ -30,14 +30,18 @@ import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "sr
 export class LoginForm extends Vue {
   @Data({ default: {} }) private value!: { username: string; password: string };
   @Data({ default: [] }) private messages!: string[];
+  @Data() private busy!: boolean;
 
   private async onSubmit() {
     const { value } = this;
+    this.busy = true;
     try {
       await this.$auth.login(value.username, value.password);
     } catch ({ response }) {
       if (response.data && response.data.errors) this.messages = Object.values(response.data.errors).flat();
       else if (response.status && response.status === 401) this.messages = ["Unknown Username or Password"];
+    } finally {
+      this.busy = false;
     }
   }
 }

@@ -18,7 +18,7 @@ new Vue({
     <div>
       <login-form />
       <register-form />
-      <verification-form />
+      <verification-form verification="bad-token" />
       <invite-form />
     </div>
   `
