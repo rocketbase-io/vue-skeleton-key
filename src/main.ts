@@ -1,11 +1,11 @@
 import { SkeletonKey } from "@rocketbase/skeleton-key";
-import { VueSkeletonKeyAuth } from "src/vue-skeleton-key-auth";
-import { VueSkeletonKey } from "src/vue-skeleton-key";
+import { VueSkeletonKeyAuth } from "./vue-skeleton-key-auth";
+import { VueSkeletonKey } from "./vue-skeleton-key";
 
-export * from "src/vue-skeleton-key";
-export * from "src/vue-skeleton-key-auth";
-export * from "src/components";
-export * from "src/forms";
+export * from "./vue-skeleton-key";
+export * from "./vue-skeleton-key-auth";
+export * from "./components";
+export * from "./forms";
 export default VueSkeletonKey;
 
 /**

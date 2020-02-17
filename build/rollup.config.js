@@ -1,10 +1,11 @@
 import sourcemaps from "rollup-plugin-sourcemaps";
 import commonjs from "rollup-plugin-commonjs";
-import ts from "@wessberg/rollup-plugin-ts";
+import ts from "@rollup/plugin-typescript";
 import paths from "rollup-plugin-ts-paths";
 import apiExtractor from "@rocketbase/rollup-plugin-api-extractor";
 import execute from "@rocketbase/rollup-plugin-exec";
 import sequential from "@rocketbase/rollup-plugin-sequential";
+import vue from "rollup-plugin-vue";
 import { name, globals, external } from "./package";
 import banner from "./banner";
 
@@ -21,10 +22,12 @@ export default {
   })),
   external,
   plugins: [
-    paths(),
-    ts({ tsconfig: "tsconfig.build.json" }),
     sourcemaps(),
     commonjs(),
+    paths(),
+    vue(),
+    ts({ tsconfig: "tsconfig.build.json" }),
+    uglify({ output: { comments: "all" } }),
     sequential(
       [
         apiExtractor({

@@ -1,8 +1,38 @@
+<template>
+  <skeleton-form
+    :busy="busy"
+    v-model="value"
+    :errors="errors"
+    :required="['username', 'email', 'password', 'password2']"
+    @submit="onSubmit"
+  >
+    <template #header>
+      <h3>Register</h3>
+      <div v-if="invitor || message">
+        <h4 v-text="invitor" v-if="invitor" />
+        <blockquote v-text="message" v-if="message" />
+      </div>
+    </template>
+    <template #default="{ errors, value }">
+      <skeleton-input v-model="value.username" :messages="errors.username" label="Username" />
+      <skeleton-input v-model="value.email" :messages="errors.email" type="email" label="Email" />
+      <skeleton-input v-model="value.password" :messages="errors.password" type="password" label="Password" />
+      <skeleton-input v-model="value.password2" :messages="errors.password2" type="password" label="Repeat Password" />
+      <skeleton-input v-model="value.firstName" :messages="errors.firstName" label="First Name" />
+      <skeleton-input v-model="value.lastName" :messages="errors.lastName" label="Last Name" />
+    </template>
+    <template #footer="{ invalid }">
+      <skeleton-button text="Register" primary submit :disabled="invalid" />
+    </template>
+  </skeleton-form>
+</template>
+
+<script lang="ts">
 /* istanbul ignore file */
 import { Component, Data, Debounce, SProp, Watch } from "@rocketbase/vue-extra-decorators";
-import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
-import Vue from "vue";
+import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "../components";
 import { AuthClient, ConfirmInviteRequest, ValidationResponse } from "@rocketbase/skeleton-key";
+import Vue from "vue";
 
 @Component({
   components: {
@@ -10,31 +40,9 @@ import { AuthClient, ConfirmInviteRequest, ValidationResponse } from "@rocketbas
     SkeletonButton,
     SkeletonInput,
     SkeletonMessage
-  },
-  template: `
-    <skeleton-form :busy="busy" v-model="value" :errors="errors" :required="['username', 'email', 'password', 'password2']" @submit="onSubmit">
-      <template #header>
-        <h3>Register</h3>
-        <div v-if="invitor || message">
-          <h4 v-text="invitor" v-if="invitor" />
-          <blockquote v-text="message" v-if="message" />
-        </div>
-      </template>
-      <template #default="{ errors, value }">
-        <skeleton-input v-model="value.username" :messages="errors.username" label="Username" />
-        <skeleton-input v-model="value.email" :messages="errors.email" type="email" label="Email" />
-        <skeleton-input v-model="value.password" :messages="errors.password" type="password" label="Password" />
-        <skeleton-input v-model="value.password2" :messages="errors.password2" type="password" label="Repeat Password" />
-        <skeleton-input v-model="value.firstName" :messages="errors.firstName" label="First Name" />
-        <skeleton-input v-model="value.lastName" :messages="errors.lastName" label="Last Name" />
-      </template>
-      <template #footer="{ invalid }">
-        <skeleton-button text="Register" primary submit :disabled="invalid" />
-      </template>
-    </skeleton-form>
-  `
+  }
 })
-export class InviteForm extends Vue {
+export default class InviteForm extends Vue {
   @Data({ default: {} }) private value!: ConfirmInviteRequest & { password2: string };
   @Data({ default: {} }) private errors!: any;
   @Data() private message!: string;
@@ -118,3 +126,4 @@ export class InviteForm extends Vue {
     if (val) this.replaceErrors("email", await this.client.validateEmail(val));
   }
 }
+</script>

@@ -1,4 +1,4 @@
-export * from "src/components/skeleton-button";
-export * from "src/components/skeleton-form";
-export * from "src/components/skeleton-input";
-export * from "src/components/skeleton-message";
+export { default as SkeletonButton } from "./skeleton-button.vue";
+export { default as SkeletonForm } from "./skeleton-form.vue";
+export { default as SkeletonInput } from "./skeleton-input.vue";
+export { default as SkeletonMessage } from "./skeleton-message.vue";

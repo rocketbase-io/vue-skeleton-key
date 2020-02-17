@@ -4,7 +4,8 @@
     "target": "es5",
     "module": "commonjs",
     "strict": true,
-    "jsx": "preserve",
+    "jsx": "react",
+    "jsxFactory": "h",
     "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
@@ -21,10 +22,6 @@
       "webpack-env",
       "jest"
     ],
-    "paths": {
-      "src/*": ["./src/*"],
-      "tests/*": ["./tests/*"]
-    },
     "lib": [
       "esnext",
       "dom"

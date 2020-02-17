@@ -1,30 +1,32 @@
+<template>
+  <skeleton-form :busy="busy" v-model="value" :errors="errors" :required="['verification']" @submit="onSubmit">
+    <template #header>
+      <h3>Verification</h3>
+    </template>
+    <template #default="{ errors }">
+      <skeleton-input v-model="verificationLocal" :messages="errors.verification" label="Token" />
+    </template>
+    <template #footer="{ invalid }">
+      <skeleton-button text="Verify" primary submit :disabled="invalid" />
+    </template>
+  </skeleton-form>
+</template>
+
+<script lang="ts">
 /* istanbul ignore file */
-import { On, Component, Data, Watch, Prop, SProp } from "@rocketbase/vue-extra-decorators";
-import { SkeletonButton, SkeletonForm, SkeletonInput } from "src/components";
-import Vue from "vue";
+import { Component, Data, Watch, SProp } from "@rocketbase/vue-extra-decorators";
+import { SkeletonButton, SkeletonForm, SkeletonInput } from "../components";
 import { AuthClient, ValidationResponse } from "@rocketbase/skeleton-key";
+import Vue from "vue";
 
 @Component({
   components: {
     SkeletonForm,
     SkeletonButton,
     SkeletonInput
-  },
-  template: `
-    <skeleton-form :busy="busy" v-model="value" :errors="errors" :required="['verification']" @submit="onSubmit">
-      <template #header>
-        <h3>Verification</h3>
-      </template>
-      <template #default="{ errors }">
-        <skeleton-input v-model="verificationLocal" :messages="errors.verification" label="Token" />
-      </template>
-      <template #footer="{ invalid }">
-        <skeleton-button text="Verify" primary submit :disabled="invalid" />
-      </template>
-    </skeleton-form>
-  `
+  }
 })
-export class VerificationForm extends Vue {
+export default class VerificationForm extends Vue {
   @Data({ default: {} }) private value!: { verification?: string };
   @Data({ default: {} }) private errors!: { verification?: string[] };
   @SProp({ model: true }) public verification!: string | null;
@@ -61,3 +63,4 @@ export class VerificationForm extends Vue {
     this.errors = val ? { verification: this.errorFor(await this.client.validateToken(val)) } : {};
   }
 }
+</script>
