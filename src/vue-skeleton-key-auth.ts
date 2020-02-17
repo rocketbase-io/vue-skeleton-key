@@ -14,15 +14,11 @@ export class VueSkeletonKeyAuth<UserExtension, TokenExtension> extends Vue {
   })
   public user!: (AppUserRead & UserExtension) | null;
   @Data({
-    default: () =>
-      (instances.auth?.jwtBundle?.token && instances.auth.tokenData) || null
+    default: () => (instances.auth?.jwtBundle?.token && instances.auth.tokenData) || null
   })
   public token!: (JsonWebToken & { payload: TokenExtension }) | null;
   @Data({
-    default: () =>
-      (instances.auth?.jwtBundle?.refreshToken &&
-        instances.auth.refreshTokenData) ||
-      null
+    default: () => (instances.auth?.jwtBundle?.refreshToken && instances.auth.refreshTokenData) || null
   })
   public refreshToken!: JsonWebToken | null;
 }
