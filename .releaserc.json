@@ -3,6 +3,7 @@
     "name": "master"
   },{
     "name": "develop",
+    "channel": "develop",
     "prerelease": "develop"
   }],
   "plugins": [
