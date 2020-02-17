@@ -1,6 +1,6 @@
-import "tests/util/xhr-mock";
+import "../util/xhr-mock";
 import Vue from "vue";
-import { VueSkeletonKey } from "src/vue-skeleton-key";
+import { VueSkeletonKey } from "../../src/vue-skeleton-key";
 
 Vue.use(VueSkeletonKey, {
   storageKey: "test",
