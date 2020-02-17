@@ -27,7 +27,6 @@ export default {
     paths(),
     vue(),
     ts({ tsconfig: "tsconfig.build.json" }),
-    uglify({ output: { comments: "all" } }),
     sequential(
       [
         apiExtractor({
