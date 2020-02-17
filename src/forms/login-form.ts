@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { Component, Data } from "@rocketbase/vue-extra-decorators";
 import Vue from "vue";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";

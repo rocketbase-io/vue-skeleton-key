@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { ClassesKebap, Component, SProp } from "@rocketbase/vue-extra-decorators";
 import Vue from "vue";
 
