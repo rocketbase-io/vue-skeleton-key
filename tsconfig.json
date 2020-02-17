@@ -12,11 +12,10 @@
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "allowJs": true,
     "checkJs": false,
     "sourceMap": true,
     "baseUrl": ".",
-    "outDir": "lib",
+    "outDir": "dist",
     "declaration": true,
     "types": [
       "webpack-env",

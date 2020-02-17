@@ -1,4 +1,5 @@
 import { SkeletonKey } from "@rocketbase/skeleton-key";
+import Vue from "vue";
 import { VueSkeletonKeyAuth } from "./vue-skeleton-key-auth";
 import { VueSkeletonKey } from "./vue-skeleton-key";
 

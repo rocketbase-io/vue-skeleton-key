@@ -43,12 +43,12 @@ import Vue from "vue";
   }
 })
 export default class InviteForm extends Vue {
+  @SProp() public inviteId!: string;
   @Data({ default: {} }) private value!: ConfirmInviteRequest & { password2: string };
   @Data({ default: {} }) private errors!: any;
   @Data() private message!: string;
   @Data() private invitor!: string;
   @Data() private busy!: boolean;
-  @SProp() private inviteId!: string;
 
   private get client(): AuthClient {
     return this.$auth.client;
