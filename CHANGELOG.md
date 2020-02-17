@@ -1,3 +1,16 @@
+# [1.0.0-develop.4](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.0-develop.3...v1.0.0-develop.4) (2020-02-17)
+
+
+### Bug Fixes
+
+* change absolute to relative paths in tests ([b750972](https://github.com/rocketbase-io/vue-skeleton-key/commit/b7509722246723ea7f56a693da629cd1e154f202))
+* remove uglify from build ([a3db29e](https://github.com/rocketbase-io/vue-skeleton-key/commit/a3db29e3c678b5a7187c1ff390e3fc9af658cafd))
+
+
+### Features
+
+* precompile vue templates ([e6ae0ae](https://github.com/rocketbase-io/vue-skeleton-key/commit/e6ae0aeb4dc126141869713c910286acaa115634))
+
 # [1.0.0-develop.3](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.0-develop.2...v1.0.0-develop.3) (2020-02-17)
 
 
