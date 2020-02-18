@@ -1,3 +1,10 @@
+# [1.0.0-develop.6](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.0-develop.5...v1.0.0-develop.6) (2020-02-18)
+
+
+### Features
+
+* include css as build target ([a5bc67a](https://github.com/rocketbase-io/vue-skeleton-key/commit/a5bc67a609bdb9bf2b1418a91458e468f0df45fd))
+
 # [1.0.0-develop.5](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.0-develop.4...v1.0.0-develop.5) (2020-02-18)
 
 
