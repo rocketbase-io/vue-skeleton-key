@@ -79,8 +79,8 @@
 }
 .skeleton-button--primary:focus,
 .skeleton-button--primary:hover {
-  background: #83aaf1;
-  border-color: #83aaf1;
+  background: #dcdcdc;
+  border-color: #dcdcdc;
 }
 .skeleton-form {
   display: block;

@@ -1,20 +1,21 @@
-$skeletonMgTiny = 2px
-$skeletonMgSmall = 4px
-$skeletonMgMedium = 6px
-$skeletonMgBig = 10px
-$skeletonMgHuge = 20px
-$skeletonBorder = 2px
+$skeletonMgTiny ?= 2px
+$skeletonMgSmall ?= 4px
+$skeletonMgMedium ?= 6px
+$skeletonMgBig ?= 10px
+$skeletonMgHuge ?= 20px
+$skeletonBorder ?= 2px
 
-$skeletonFont = 'Arial', sans-serif
-$skeletonFontSize = .8rem
+$skeletonFont ?= 'Arial', sans-serif
+$skeletonFontSize ?= .8rem
 
-$skeletonColorWhite = ghostwhite
-$skeletonColorGray = lightgray
-$skeletonColorBlack = dimgrey
-$skeletonColorBlue = cornflowerblue
-$skeletonColorLightRed = lightcoral
-$skeletonColorRed = indianred
-$skeletonColorDarkRed = maroon
+$skeletonColorWhite ?= ghostwhite
+$skeletonColorGray ?= lightgray
+$skeletonColorBlack ?= dimgrey
+$skeletonColorBlue ?= cornflowerblue
+$skeletonColorLightBlue ?= lighten($skeletonColorGray, 20%)
+$skeletonColorLightRed ?= lightcoral
+$skeletonColorRed ?= indianred
+$skeletonColorDarkRed ?= maroon
 
 .skeleton-input
   position relative
@@ -77,15 +78,15 @@ $skeletonColorDarkRed = maroon
     margin $skeletonMgMedium $skeletonMgBig
     font-size $skeletonFontSize
   &:focus, &:hover
-    background lighten($skeletonColorGray, 20%)
-    border-color lighten($skeletonColorGray, 20%)
+    background $skeletonColorLightBlue
+    border-color $skeletonColorLightBlue
   &--primary
     color $skeletonColorWhite
     background $skeletonColorBlue
     border-color $skeletonColorBlue
     &:focus, &:hover
-      background lighten($skeletonColorBlue, 20%)
-      border-color lighten($skeletonColorBlue, 20%)
+      background $skeletonColorLightBlue
+      border-color $skeletonColorLightBlue
 
 .skeleton-form
   display block
