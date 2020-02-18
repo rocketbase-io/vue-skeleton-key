@@ -1,7 +1,7 @@
 import Vue from "vue";
 import { Component, Data } from "@rocketbase/vue-extra-decorators";
 import { AppUserRead, JsonWebToken } from "@rocketbase/skeleton-key";
-import { instances } from "./instances";
+import { instances } from "src/instances";
 
 /**
  * Vue component attached to Vue.prototype.$auth

@@ -1,7 +1,6 @@
 import { SkeletonKey } from "@rocketbase/skeleton-key";
-import Vue from "vue";
-import { VueSkeletonKeyAuth } from "./vue-skeleton-key-auth";
-import { VueSkeletonKey } from "./vue-skeleton-key";
+import { VueSkeletonKeyAuth } from "src/vue-skeleton-key-auth";
+import { VueSkeletonKey } from "src/vue-skeleton-key";
 
 export * from "./vue-skeleton-key";
 export * from "./vue-skeleton-key-auth";

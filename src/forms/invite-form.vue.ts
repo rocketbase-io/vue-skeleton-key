@@ -1,34 +1,9 @@
-<template>
-  <skeleton-form
-    :busy="busy"
-    v-model="value"
-    :errors="errors"
-    :required="['username', 'email', 'password', 'password2']"
-    @submit="onSubmit"
-  >
-    <template #header>
-      <h3>Register</h3>
-    </template>
-    <template #default="{ errors, value }">
-      <skeleton-input v-model="value.username" :messages="errors.username" label="Username" />
-      <skeleton-input v-model="value.email" :messages="errors.email" type="email" label="Email" />
-      <skeleton-input v-model="value.password" :messages="errors.password" type="password" label="Password" />
-      <skeleton-input v-model="value.password2" :messages="errors.password2" type="password" label="Repeat Password" />
-      <skeleton-input v-model="value.firstName" :messages="errors.firstName" label="First Name" />
-      <skeleton-input v-model="value.lastName" :messages="errors.lastName" label="Last Name" />
-    </template>
-    <template #footer="{ invalid }">
-      <skeleton-button text="Register" primary submit :disabled="invalid" />
-    </template>
-  </skeleton-form>
-</template>
-
-<script lang="ts">
 /* istanbul ignore file */
-import { Component, Data, Debounce, Watch } from "@rocketbase/vue-extra-decorators";
-import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "../components";
-import { AuthClient, RegistrationRequest, ValidationResponse } from "@rocketbase/skeleton-key";
+import { Component, Data, Debounce, SProp, Watch } from "@rocketbase/vue-extra-decorators";
+import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
+import { AuthClient, ConfirmInviteRequest, ValidationResponse } from "@rocketbase/skeleton-key";
 import Vue from "vue";
+import render from "./invite-form.vue.html";
 
 @Component({
   components: {
@@ -36,11 +11,15 @@ import Vue from "vue";
     SkeletonButton,
     SkeletonInput,
     SkeletonMessage
-  }
+  },
+  render
 })
-export default class RegisterForm extends Vue {
-  @Data({ default: {} }) private value!: RegistrationRequest & { password2: string };
+export default class InviteForm extends Vue {
+  @SProp() public inviteId!: string;
+  @Data({ default: {} }) private value!: ConfirmInviteRequest & { password2: string };
   @Data({ default: {} }) private errors!: any;
+  @Data() private message!: string;
+  @Data() private invitor!: string;
   @Data() private busy!: boolean;
 
   private get client(): AuthClient {
@@ -51,10 +30,10 @@ export default class RegisterForm extends Vue {
     const { value } = this;
     this.busy = true;
     try {
-      await this.client.register(value);
+      await this.client.transformInviteToUser(value);
       this.errors = {};
     } catch ({ response }) {
-      if (response.data && response.data.errors) this.errors = response.data.errors;
+      if (response?.data?.errors) this.errors = response.data.errors;
     } finally {
       this.busy = false;
     }
@@ -73,6 +52,19 @@ export default class RegisterForm extends Vue {
       ...this.errors,
       [field]: this.errorsFor(response)
     };
+  }
+
+  @Watch({ prop: "inviteId", immediate: true })
+  private async onInviteChange(inviteId: string) {
+    this.value = { ...this.value, inviteId };
+    if (!inviteId) return;
+    const { email, firstName, lastName, invitor, message } = await this.client.verifyInvite(inviteId);
+    Object.entries({ email, firstName, lastName }).forEach(([key, value]) => {
+      if (!value) return;
+      this.value = { ...this.value, [key]: value };
+    });
+    this.invitor = invitor;
+    this.message = message!;
   }
 
   @Watch("value.username")
@@ -106,4 +98,3 @@ export default class RegisterForm extends Vue {
     if (val) this.replaceErrors("email", await this.client.validateEmail(val));
   }
 }
-</script>

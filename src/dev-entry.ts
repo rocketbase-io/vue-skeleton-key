@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 import Vue from "vue";
-import { InviteForm, LoginForm, RegisterForm, VerificationForm, VueSkeletonKey } from "./main";
+import { InviteForm, LoginForm, RegisterForm, VerificationForm, VueSkeletonKey } from "src/main";
 
 Vue.use(VueSkeletonKey, {
   storageKey: "io.rocketbase.vue-skeleton-key",

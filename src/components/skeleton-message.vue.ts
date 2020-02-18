@@ -1,15 +1,9 @@
-<template>
-  <div :class="classes">
-    <div class="skeleton-message__inner" v-text="text" />
-  </div>
-</template>
-
-<script lang="ts">
 /* istanbul ignore file */
 import { ClassesKebap, Component, SProp } from "@rocketbase/vue-extra-decorators";
 import Vue from "vue";
+import render from "./skeleton-message.vue.html";
 
-@Component
+@Component({ render })
 export default class SkeletonMessage extends Vue {
   @SProp() public text!: string;
   @ClassesKebap()
@@ -17,4 +11,3 @@ export default class SkeletonMessage extends Vue {
     return {};
   }
 }
-</script>

@@ -1,15 +1,9 @@
-<template>
-  <button :type="submit ? 'submit' : 'button'" :class="classes" v-bind="$attrs">
-    <div class="skeleton-button__inner" v-text="text" />
-  </button>
-</template>
-
-<script lang="ts">
 /* istanbul ignore file */
 import { BProp, ClassesKebap, Component, SProp } from "@rocketbase/vue-extra-decorators";
 import Vue from "vue";
+import render from "./skeleton-button.vue.html";
 
-@Component
+@Component({ render })
 export default class SkeletonButton extends Vue {
   @SProp({}) public text!: string;
   @BProp() public primary!: boolean;
@@ -21,4 +15,3 @@ export default class SkeletonButton extends Vue {
     return { primary };
   }
 }
-</script>

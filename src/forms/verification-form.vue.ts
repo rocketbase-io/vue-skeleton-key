@@ -1,30 +1,17 @@
-<template>
-  <skeleton-form :busy="busy" v-model="value" :errors="errors" :required="['verification']" @submit="onSubmit">
-    <template #header>
-      <h3>Verification</h3>
-    </template>
-    <template #default="{ errors }">
-      <skeleton-input v-model="verificationLocal" :messages="errors.verification" label="Token" />
-    </template>
-    <template #footer="{ invalid }">
-      <skeleton-button text="Verify" primary submit :disabled="invalid" />
-    </template>
-  </skeleton-form>
-</template>
-
-<script lang="ts">
 /* istanbul ignore file */
 import { Component, Data, Watch, SProp } from "@rocketbase/vue-extra-decorators";
-import { SkeletonButton, SkeletonForm, SkeletonInput } from "../components";
+import { SkeletonButton, SkeletonForm, SkeletonInput } from "src/components";
 import { AuthClient, ValidationResponse } from "@rocketbase/skeleton-key";
 import Vue from "vue";
+import render from "./verification-form.vue.html";
 
 @Component({
   components: {
     SkeletonForm,
     SkeletonButton,
     SkeletonInput
-  }
+  },
+  render
 })
 export default class VerificationForm extends Vue {
   @Data({ default: {} }) private value!: { verification?: string };
@@ -45,7 +32,7 @@ export default class VerificationForm extends Vue {
       this.errors = {};
       await this.$auth.refreshInfo();
     } catch ({ response }) {
-      if (response.data && response.data.errors) this.errors = response.data.errors;
+      if (response?.data?.errors) this.errors = response.data.errors;
     } finally {
       this.busy = false;
     }
@@ -63,4 +50,3 @@ export default class VerificationForm extends Vue {
     this.errors = val ? { verification: this.errorFor(await this.client.validateToken(val)) } : {};
   }
 }
-</script>

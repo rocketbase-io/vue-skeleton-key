@@ -1,5 +1,5 @@
 import { SkeletonKey } from "@rocketbase/skeleton-key";
-import { VueSkeletonKeyAuth } from "./vue-skeleton-key-auth";
+import { VueSkeletonKeyAuth } from "src/vue-skeleton-key-auth";
 
 /**
  * Stores the vue and skeleton key instances for ease of access

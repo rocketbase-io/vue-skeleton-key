@@ -1,4 +1,5 @@
-export { default as SkeletonButton } from "./skeleton-button.vue";
-export { default as SkeletonForm } from "./skeleton-form.vue";
-export { default as SkeletonInput } from "./skeleton-input.vue";
-export { default as SkeletonMessage } from "./skeleton-message.vue";
+import SkeletonButton from "src/components/skeleton-button.vue";
+import SkeletonForm from "src/components/skeleton-form.vue";
+import SkeletonInput from "src/components/skeleton-input.vue";
+import SkeletonMessage from "src/components/skeleton-message.vue";
+export { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage };

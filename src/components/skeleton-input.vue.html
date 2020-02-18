@@ -1,0 +1,13 @@
+<div :class="classes">
+  <div class="skeleton-input__outer">
+    <div class="skeleton-input__label" v-if="label">
+      <label class="skeleton-input__label__text" v-text="label" />
+    </div>
+    <div class="skeleton-input__wrapper">
+      <input class="skeleton-input__inner" ref="inner" :type="type" v-model="localValue" v-bind="$attrs" />
+    </div>
+    <div class="skeleton-input__messages" v-if="invalid">
+      <div class="skeleton-input__message" v-for="(message, index) in messages" :key="index" v-text="message" />
+    </div>
+  </div>
+</div>

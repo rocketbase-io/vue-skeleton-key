@@ -1,8 +1,8 @@
 import Vue from "vue";
 import { SkeletonKey, SkeletonKeyOptions } from "@rocketbase/skeleton-key";
-import { VueSkeletonKeyAuth } from "./vue-skeleton-key-auth";
-import { instances } from "./instances";
-import { linkProperties } from "./link-properties";
+import { VueSkeletonKeyAuth } from "src/vue-skeleton-key-auth";
+import { instances } from "src/instances";
+import { linkProperties } from "src/link-properties";
 
 /**
  * Vue Wrapper for @rocketbase/skeleton-key

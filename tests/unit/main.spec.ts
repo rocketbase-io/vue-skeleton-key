@@ -1,4 +1,4 @@
-import { VueSkeletonKey, VueSkeletonKeyAuth } from "../../src/main";
+import { VueSkeletonKey, VueSkeletonKeyAuth } from "src/main";
 
 describe("main.ts", () => {
   it("should export the plugin function and tue vue component", () => {

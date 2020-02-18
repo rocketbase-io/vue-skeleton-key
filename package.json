@@ -13,9 +13,7 @@
   ],
   "scripts": {
     "serve": "webpack-dev-server",
-    "build": "npm run build:dts && npm run build:lib",
-    "build:dts": "tsc --emitDeclarationOnly -p tsconfig.build.json",
-    "build:lib": "rollup --config build/rollup.config.js",
+    "build": "rollup --config build/rollup.config.js",
     "clean": "rimraf dist temp docs coverage",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
@@ -45,16 +43,18 @@
   "dependencies": {
     "@rocketbase/skeleton-key": "^0.7.1",
     "@rocketbase/vue-extra-decorators": "^2.0.9",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "@babel/types": "latest"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@microsoft/api-documenter": "^7.7.8",
     "@microsoft/api-extractor": "^7.7.5",
     "@rocketbase/rollup-plugin-api-extractor": "^1.0.3",
     "@rocketbase/rollup-plugin-exec": "^1.0.1",
-    "@rocketbase/rollup-plugin-sequential": "^1.0.0",
+    "@rocketbase/rollup-plugin-sequential": "^1.1.0",
     "@rollup/plugin-typescript": "^3.0.0",
     "@semantic-release/changelog": "^3.0.6",
     "@semantic-release/commit-analyzer": "^7.0.0",
@@ -77,6 +77,7 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^5.0.1",
     "@vue/test-utils": "^1.0.0-beta.31",
+    "@wessberg/rollup-plugin-ts": "^1.2.17",
     "dotenv-flow": "^3.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-prettier": "^3.1.2",
@@ -87,6 +88,7 @@
     "prettier": "^1.19.1",
     "rollup": "^1.29.1",
     "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-sourcemaps": "^0.5.0",
     "rollup-plugin-ts-paths": "^1.0.3",
     "rollup-plugin-ts-vue": "^0.3.0",

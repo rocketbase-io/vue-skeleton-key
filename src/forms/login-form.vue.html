@@ -1,0 +1,15 @@
+<skeleton-form :busy="busy" v-model="value" @submit="onSubmit" :required="['username', 'password']">
+  <template #header>
+    <h3>Login</h3>
+  </template>
+  <template #default="{ value }">
+    <skeleton-input value="TEST" label="Username" v-model="value.username" />
+    <skeleton-input value="TEST" type="password" label="Password" v-model="value.password" />
+  </template>
+  <template #footer="{ invalid }">
+    <template v-if="messages">
+      <skeleton-message v-for="(message, index) in messages" :text="message" :key="index" />
+    </template>
+    <skeleton-button text="Login" primary submit :disabled="invalid" />
+  </template>
+</skeleton-form>
