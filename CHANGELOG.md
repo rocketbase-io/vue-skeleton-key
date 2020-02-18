@@ -1,3 +1,10 @@
+# [1.0.0-develop.7](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.0-develop.6...v1.0.0-develop.7) (2020-02-18)
+
+
+### Features
+
+* adjustable default stylus variables ([80b7c0c](https://github.com/rocketbase-io/vue-skeleton-key/commit/80b7c0c0db9294dcda50a064ed9b12f74ced2c3e))
+
 # [1.0.0-develop.6](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.0-develop.5...v1.0.0-develop.6) (2020-02-18)
 
 
