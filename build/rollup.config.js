@@ -36,9 +36,17 @@ export default {
           override: { name },
           cleanup: false
         }),
-        execute(["api-documenter markdown --output-folder docs --input-folder dist", "rimraf temp api-extractor.json dist/*.*.d.ts"], {
-          stdio: "ignore"
-        })
+        execute(
+          [
+            "api-documenter markdown --output-folder docs --input-folder dist",
+            "rimraf temp api-extractor.json dist/*.*.d.ts",
+            "cp build/www/basic-theme.css dist/VueSkeletonKey.css",
+            "cp build/www/basic-theme.styl dist/VueSkeletonKey.styl"
+          ],
+          {
+            stdio: "ignore"
+          }
+        )
       ],
       { once: true }
     )
