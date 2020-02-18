@@ -1,3 +1,10 @@
+# [1.0.0-develop.5](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.0-develop.4...v1.0.0-develop.5) (2020-02-18)
+
+
+### Features
+
+* precompiled templates ([bf761ca](https://github.com/rocketbase-io/vue-skeleton-key/commit/bf761ca7fe708d5ebffe6a682cab4986d0886bf6))
+
 # [1.0.0-develop.4](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.0-develop.3...v1.0.0-develop.4) (2020-02-17)
 
 
