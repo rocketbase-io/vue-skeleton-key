@@ -23,6 +23,10 @@ export default class RegisterForm extends Vue {
     return this.$auth.client;
   }
 
+  private tt(this: any, key: string, fallback: string) {
+    return this.$t ? this.$t(key) || fallback : fallback;
+  }
+
   private async onSubmit() {
     const { value } = this;
     this.busy = true;
@@ -40,7 +44,7 @@ export default class RegisterForm extends Vue {
     if (errorCodes) {
       if (Array.isArray(errorCodes)) return errorCodes;
       else return Object.values(errorCodes);
-    } else if (!valid) return ["Invalid Username"];
+    } else if (!valid) return [this.tt("skeleton-key.register.invalid.username", "Invalid Username")];
     else return undefined;
   }
 
@@ -71,7 +75,7 @@ export default class RegisterForm extends Vue {
     const val = this.value.password2;
     this.errors = {
       ...this.errors,
-      password2: val === this.value.password ? undefined : ["Passwords don't match"]
+      password2: val === this.value.password ? undefined : [this.tt("skeleton-key.register.invalid.password2", "Passwords don't match")]
     };
   }
 

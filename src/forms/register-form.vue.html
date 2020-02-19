@@ -6,17 +6,17 @@
   @submit="onSubmit"
 >
   <template #header>
-    <h3>Register</h3>
+    <h3>{{tt("skeleton-key.register.title", "Register")}}</h3>
   </template>
   <template #default="{ errors, value }">
-    <skeleton-input v-model="value.username" :messages="errors.username" label="Username" />
-    <skeleton-input v-model="value.email" :messages="errors.email" type="email" label="Email" />
-    <skeleton-input v-model="value.password" :messages="errors.password" type="password" label="Password" />
-    <skeleton-input v-model="value.password2" :messages="errors.password2" type="password" label="Repeat Password" />
-    <skeleton-input v-model="value.firstName" :messages="errors.firstName" label="First Name" />
-    <skeleton-input v-model="value.lastName" :messages="errors.lastName" label="Last Name" />
+    <skeleton-input v-model="value.username" :messages="errors.username" :label="tt('skeleton-key.register.username', 'Username')" />
+    <skeleton-input v-model="value.email" :messages="errors.email" type="email" :label="tt('skeleton-key.register.email', 'Email')" />
+    <skeleton-input v-model="value.password" :messages="errors.password" type="password" :label="tt('skeleton-key.register.password', 'Password')" />
+    <skeleton-input v-model="value.password2" :messages="errors.password2" type="password" :label="tt('skeleton-key.register.password2', 'Repeat Password')" />
+    <skeleton-input v-model="value.firstName" :messages="errors.firstName" :label="tt('skeleton-key.register.firstName', 'First Name')" />
+    <skeleton-input v-model="value.lastName" :messages="errors.lastName" :label="tt('skeleton-key.register.lastName', 'Last Name')" />
   </template>
   <template #footer="{ invalid }">
-    <skeleton-button text="Register" primary submit :disabled="invalid" />
+    <skeleton-button :text="tt('skeleton-key.register.submit', 'Register')" primary submit :disabled="invalid" />
   </template>
 </skeleton-form>

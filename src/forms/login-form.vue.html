@@ -1,15 +1,15 @@
 <skeleton-form :busy="busy" v-model="value" @submit="onSubmit" :required="['username', 'password']">
   <template #header>
-    <h3>Login</h3>
+    <h3>{{tt("skeleton-key.login.title", "Login")}}</h3>
   </template>
   <template #default="{ value }">
-    <skeleton-input value="TEST" label="Username" v-model="value.username" />
-    <skeleton-input value="TEST" type="password" label="Password" v-model="value.password" />
+    <skeleton-input value="TEST" :label="tt('skeleton-key.login.username', 'Username')" v-model="value.username" />
+    <skeleton-input value="TEST" type="password" :label="tt('skeleton-key.login.password', 'Password')" v-model="value.password" />
   </template>
   <template #footer="{ invalid }">
     <template v-if="messages">
       <skeleton-message v-for="(message, index) in messages" :text="message" :key="index" />
     </template>
-    <skeleton-button text="Login" primary submit :disabled="invalid" />
+    <skeleton-button :text="tt('skeleton-key.login.submit', 'Login')" primary submit :disabled="invalid" />
   </template>
 </skeleton-form>

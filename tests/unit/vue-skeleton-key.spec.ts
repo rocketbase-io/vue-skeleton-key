@@ -31,5 +31,19 @@ describe("vue-skeleton-key.ts", () => {
       Vue.prototype.$auth.$skeletonKey.emitSync("login", "test");
       expect(Vue.prototype.$auth.user).toBeNull();
     });
+    it("should forward client access", () => {
+      expect(Vue.prototype.$auth.client).toEqual(Vue.prototype.$auth.$skeletonKey.client);
+    });
+    it("should forward jwtBundle access", () => {
+      const authVue = Vue.prototype.$auth;
+      const internal = authVue.$skeletonKey;
+      const orig = internal.jwtBundle;
+      const dummyJwtBundle = {};
+      expect(internal.jwtBundle).toEqual(authVue.jwtBundle);
+      internal.jwtBundle = dummyJwtBundle;
+      expect(authVue.jwtBundle).toEqual(dummyJwtBundle);
+      authVue.jwtBundle = orig;
+      expect(internal.jwtBundle).toEqual(orig);
+    });
   });
 });
