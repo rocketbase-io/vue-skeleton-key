@@ -1,3 +1,10 @@
+# [1.0.0-develop.9](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.0-develop.8...v1.0.0-develop.9) (2020-02-19)
+
+
+### Bug Fixes
+
+* simplify babel plugin vue transform with ([1acedfe](https://github.com/rocketbase-io/vue-skeleton-key/commit/1acedfec809c314d45f72a41876f5175560f0cf7))
+
 # [1.0.0-develop.8](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.0-develop.7...v1.0.0-develop.8) (2020-02-19)
 
 
