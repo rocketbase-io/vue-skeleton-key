@@ -1,3 +1,28 @@
+# [1.6.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.5.0...v1.6.0) (2020-02-19)
+
+
+### Bug Fixes
+
+* change absolute to relative paths in tests ([b750972](https://github.com/rocketbase-io/vue-skeleton-key/commit/b7509722246723ea7f56a693da629cd1e154f202))
+* don't count dev entry towards coverage ([dfe7690](https://github.com/rocketbase-io/vue-skeleton-key/commit/dfe7690e90b21c8535744938fa8b1a4adee0df75))
+* remove uglify from build ([a3db29e](https://github.com/rocketbase-io/vue-skeleton-key/commit/a3db29e3c678b5a7187c1ff390e3fc9af658cafd))
+* simplify babel plugin vue transform with ([1acedfe](https://github.com/rocketbase-io/vue-skeleton-key/commit/1acedfec809c314d45f72a41876f5175560f0cf7))
+* streamline build, release ([c424b22](https://github.com/rocketbase-io/vue-skeleton-key/commit/c424b2278e719fb190ccabdd419ad727bc714e8a))
+* trigger dev release ([ca2aa25](https://github.com/rocketbase-io/vue-skeleton-key/commit/ca2aa257c5ae8b5da12cddbffa896b1d1c8dc3f5))
+
+
+### Features
+
+* add basic components, login, register and verification form ([35623a6](https://github.com/rocketbase-io/vue-skeleton-key/commit/35623a6c848bebcd14a6da6ec7722aed79a26c0d))
+* add verification, invite forms ([d24cce3](https://github.com/rocketbase-io/vue-skeleton-key/commit/d24cce3946845d035f65f15211212760304942e3))
+* adjustable default stylus variables ([80b7c0c](https://github.com/rocketbase-io/vue-skeleton-key/commit/80b7c0c0db9294dcda50a064ed9b12f74ced2c3e))
+* busy state for forms, better linking ([da4046a](https://github.com/rocketbase-io/vue-skeleton-key/commit/da4046a56425bdfd6713626c4e372367e20d1e08))
+* enable prereleases on develop branch ([71e3811](https://github.com/rocketbase-io/vue-skeleton-key/commit/71e3811780f21d7ac31e8a586cda582ab22e0419))
+* include css as build target ([a5bc67a](https://github.com/rocketbase-io/vue-skeleton-key/commit/a5bc67a609bdb9bf2b1418a91458e468f0df45fd))
+* more stylus variables for form customization ([944b85c](https://github.com/rocketbase-io/vue-skeleton-key/commit/944b85c10713ab34291a0231f16b02064b2135c7))
+* precompile vue templates ([e6ae0ae](https://github.com/rocketbase-io/vue-skeleton-key/commit/e6ae0aeb4dc126141869713c910286acaa115634))
+* precompiled templates ([bf761ca](https://github.com/rocketbase-io/vue-skeleton-key/commit/bf761ca7fe708d5ebffe6a682cab4986d0886bf6))
+
 # [1.6.0-develop.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.5.0...v1.6.0-develop.1) (2020-02-19)
 
 
