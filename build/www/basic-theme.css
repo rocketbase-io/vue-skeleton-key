@@ -9,12 +9,14 @@
   box-sizing: border-box;
   font-size: 0.8rem;
   padding: 0 4px;
+  color: #696969;
 }
 .skeleton-input__wrapper {
   box-sizing: border-box;
   position: relative;
   border: 2px solid #d3d3d3;
   border-radius: 4px;
+  color: #696969;
 }
 .skeleton-input__wrapper:focus-within {
   border-color: #6495ed;
@@ -69,6 +71,7 @@
 }
 .skeleton-button:focus,
 .skeleton-button:hover {
+  color: #696969;
   background: #dcdcdc;
   border-color: #dcdcdc;
 }
@@ -79,17 +82,25 @@
 }
 .skeleton-button--primary:focus,
 .skeleton-button--primary:hover {
-  background: #dcdcdc;
-  border-color: #dcdcdc;
+  color: #f8f8ff;
+  background: #83aaf1;
+  border-color: #83aaf1;
 }
 .skeleton-form {
   display: block;
   font-family: 'Arial', sans-serif;
+  font-size: 0.8rem;
   box-sizing: border-box;
   position: relative;
 }
 .skeleton-form__footer {
   text-align: right;
+}
+.skeleton-form__header,
+.skeleton-form h3 {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem;
+  color: #696969;
 }
 .skeleton-message {
   font-family: 'Arial', sans-serif;
@@ -98,7 +109,7 @@
   font-size: 0.8rem;
   color: #800000;
   background: #f08080;
-  border: 2px solid #cd5c5c;
+  border: 2px solid #800000;
   border-radius: 10px;
   padding: 10px 20px;
   margin: 10px 6px;
