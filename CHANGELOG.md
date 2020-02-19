@@ -1,3 +1,10 @@
+# [1.0.0-develop.8](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.0-develop.7...v1.0.0-develop.8) (2020-02-19)
+
+
+### Features
+
+* more stylus variables for form customization ([944b85c](https://github.com/rocketbase-io/vue-skeleton-key/commit/944b85c10713ab34291a0231f16b02064b2135c7))
+
 # [1.0.0-develop.7](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.0.0-develop.6...v1.0.0-develop.7) (2020-02-18)
 
 
