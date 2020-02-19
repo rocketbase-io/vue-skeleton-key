@@ -18,6 +18,10 @@ export default class LoginForm extends Vue {
   @Data({ default: [] }) private messages!: string[];
   @Data() private busy!: boolean;
 
+  private tt(this: any, key: string, fallback: string) {
+    return this.$t ? this.$t(key) || fallback : fallback;
+  }
+
   private async onSubmit() {
     const { value } = this;
     this.busy = true;
@@ -25,7 +29,7 @@ export default class LoginForm extends Vue {
       await this.$auth.login(value.username, value.password);
     } catch ({ response }) {
       if (response?.data?.errors) this.messages = Object.values(response.data.errors).flat();
-      else if (response?.status === 401) this.messages = ["Unknown Username or Password"];
+      else this.messages = [this.tt("skeleton-key.login.invalid", "Invalid Username or Password")];
     } finally {
       this.busy = false;
     }

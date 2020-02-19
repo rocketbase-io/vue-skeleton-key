@@ -24,6 +24,10 @@ export default class VerificationForm extends Vue {
     return this.$auth.client;
   }
 
+  private tt(this: any, key: string, fallback: string) {
+    return this.$t ? this.$t(key) || fallback : fallback;
+  }
+
   private async onSubmit() {
     const { verification } = this.value;
     this.busy = true;
@@ -40,7 +44,7 @@ export default class VerificationForm extends Vue {
 
   private errorFor({ errorCodes, valid }: ValidationResponse) {
     if (valid) return;
-    if (!errorCodes) return ["Invalid Token"];
+    if (!errorCodes) return [this.tt("skeleton-key.verification.invalid.token", "Invalid Token")];
     return Array.isArray(errorCodes) ? errorCodes : Object.values(errorCodes);
   }
 
