@@ -6,8 +6,8 @@
     </template>
   </template>
   <template #default="{ value }">
-    <skeleton-input value="TEST" :label="tt('skeleton-key.login.username', 'Username')" v-model="value.username" />
-    <skeleton-input value="TEST" type="password" :label="tt('skeleton-key.login.password', 'Password')" v-model="value.password" />
+    <skeleton-input :label="tt('skeleton-key.login.username', 'Username')" v-model="value.username" />
+    <skeleton-input type="password" :label="tt('skeleton-key.login.password', 'Password')" v-model="value.password" />
   </template>
   <template #footer="{ invalid }">
     <skeleton-button :text="tt('skeleton-key.login.submit', 'Login')" primary submit :disabled="invalid" />
