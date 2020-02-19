@@ -7,32 +7,31 @@ export default () => {
     return /^[$_]/g.test(name) && !["$event", "$$v"].includes(name);
   }
 
-  function shouldProcess(path, parent, withName, withExpr) {
-    if (t.isMemberExpression(parent)) return false;
-    if (path.key === "key") return false;
-    if (path.key === "id") return false;
-    if (path.key === "params") return false;
-    if (t.isVariableDeclarator(parent)) return false;
-    if (path.node === withName || path.node === withExpr) return false;
-    // Function parameters
-    if (t.isFunction(parent) && path.parent.params.includes(path.node)) return false;
-    // Object destruction
-    if (t.isObjectPattern(parent.parentPath) || t.isArrayPattern(parent.parentPath)) return false;
-    // Prevent recursion
+  function isRecursiveCall(path, parent, withName) {
+    if (t.isMemberExpression(parent)) return true;
     if (
       t.isConditionalExpression(path.parentPath) &&
       t.isMemberExpression(path.parentPath.get("alternate")) &&
       path.parentPath.get("alternate.object").node === withName
     )
-      return false;
-    // Prevent recursion
-    if (
+      return true;
+    return (
       t.isConditionalExpression(path.parentPath.parentPath.parentPath) &&
       t.isMemberExpression(path.parentPath.parentPath.parentPath.get("alternate")) &&
       path.parentPath.parentPath.parentPath.get("alternate.object").node === withName
-    )
-      return false;
-    return true;
+    );
+  }
+
+  function isVariableDeclaration(path, parent) {
+    if (t.isVariableDeclarator(parent) || t.isObjectPattern(parent.parentPath) || t.isArrayPattern(parent.parentPath)) return true;
+    return t.isFunction(parent) && path.parent.params.includes(path.node);
+  }
+
+  function shouldProcess(path, parent, withName, withExpr) {
+    if (isRecursiveCall(path, parent, withName)) return false;
+    if (isVariableDeclaration(path, parent)) return false;
+    if (["key", "id", "params"].includes(path.key)) return false;
+    return !(path.node === withName || path.node === withExpr);
   }
 
   function buildTestExpression(withIdentifier, otherIdentifier) {
