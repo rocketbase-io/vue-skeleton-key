@@ -12,10 +12,8 @@
     "LICENSE.md"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "npm run build:ts && npm run build:dts",
-    "build:ts": "rollup --config build/rollup.config.js",
-    "build:dts": "rimraf dist/*.*.d.ts",
+    "serve": "webpack-dev-server",
+    "build": "rollup --config build/rollup.config.js",
     "clean": "rimraf dist temp docs coverage",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
@@ -43,26 +41,33 @@
   },
   "homepage": "https://github.com/rocketbase-io/vue-skeleton-key#readme",
   "dependencies": {
-    "@rocketbase/skeleton-key": "^0.7.0",
+    "@rocketbase/skeleton-key": "^0.7.1",
     "@rocketbase/vue-extra-decorators": "^2.0.9",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "@babel/types": "latest"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@microsoft/api-documenter": "^7.7.8",
     "@microsoft/api-extractor": "^7.7.5",
     "@rocketbase/rollup-plugin-api-extractor": "^1.0.3",
     "@rocketbase/rollup-plugin-exec": "^1.0.1",
-    "@rocketbase/rollup-plugin-sequential": "^1.0.0",
+    "@rocketbase/rollup-plugin-sequential": "^1.1.0",
+    "@rollup/plugin-typescript": "^3.0.0",
     "@semantic-release/changelog": "^3.0.6",
     "@semantic-release/commit-analyzer": "^7.0.0",
     "@semantic-release/git": "^8.0.0",
     "@semantic-release/github": "^6.0.1",
     "@semantic-release/npm": "^6.0.0",
     "@semantic-release/release-notes-generator": "^7.3.5",
+    "@types/dotenv-flow": "^3.0.0",
     "@types/jest": "^24.9.0",
     "@types/lodash": "^4.14.149",
+    "@types/node": "^13.7.1",
+    "@types/webpack": "^4.41.6",
+    "@types/webpack-dev-server": "^3.10.0",
     "@typescript-eslint/eslint-plugin": "^2.17.0",
     "@typescript-eslint/parser": "^2.17.0",
     "@vue/cli-plugin-eslint": "^4.1.2",
@@ -72,20 +77,31 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^5.0.1",
     "@vue/test-utils": "^1.0.0-beta.31",
-    "@wessberg/rollup-plugin-ts": "^1.2.13",
+    "@wessberg/rollup-plugin-ts": "^1.2.17",
+    "dotenv-flow": "^3.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-vue": "^6.1.2",
     "lint-staged": "^10.0.1",
     "lodash": "^4.17.15",
+    "node-sass": "^4.13.1",
     "prettier": "^1.19.1",
     "rollup": "^1.29.1",
     "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-sourcemaps": "^0.5.0",
     "rollup-plugin-ts-paths": "^1.0.3",
+    "rollup-plugin-ts-vue": "^0.3.0",
+    "rollup-plugin-vue": "^5.1.6",
     "semantic-release": "^16.0.2",
+    "stylus": "^0.54.7",
+    "ts-node": "^8.6.2",
     "typescript": "^3.7.5",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-rollup-loader": "^0.8.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
@@ -93,8 +109,7 @@
   },
   "lint-staged": {
     "*.{js,vue,ts}": [
-      "vue-cli-service lint",
-      "git add"
+      "vue-cli-service lint"
     ]
   },
   "publishConfig": {

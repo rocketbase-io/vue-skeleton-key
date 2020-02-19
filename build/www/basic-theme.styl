@@ -1,0 +1,167 @@
+$skeletonMgTiny ?= 2px
+$skeletonMgSmall ?= 4px
+$skeletonMgMedium ?= 6px
+$skeletonMgBig ?= 10px
+$skeletonMgHuge ?= 20px
+
+$skeletonBorder ?= 2px
+
+$skeletonFont ?= 'Arial', sans-serif
+$skeletonFontSize ?= .8rem
+
+$skeletonColorWhite ?= ghostwhite
+$skeletonColorGray ?= lightgray
+$skeletonColorBlack ?= dimgrey
+$skeletonColorBlue ?= cornflowerblue
+$skeletonColorLightBlue ?= lighten($skeletonColorGray, 20%)
+$skeletonColorLightRed ?= lightcoral
+$skeletonColorRed ?= indianred
+$skeletonColorDarkRed ?= maroon
+
+
+
+
+$skeletonInputLabelColor ?= $skeletonColorBlack
+$skeletonInputInnerColor ?= $skeletonColorBlack
+$skeletonInputBorderColor ?= $skeletonColorGray
+$skeletonInputInvalidColor ?= $skeletonColorRed
+$skeletonInputInvalidFontColor ?= $skeletonColorWhite
+$skeletonInputFocusColor ?= $skeletonColorBlue
+$skeletonInputMessageRadius ?= $skeletonMgSmall
+$skeletonInputLabelFontSize ?= $skeletonFontSize
+$skeletonInputInputFontSize ?= $skeletonFontSize
+$skeletonInputMessageFontSize ?= $skeletonFontSize
+$skeletonInputBorder ?= $skeletonBorder
+$skeletonInputBorderRadius ?= $skeletonMgSmall
+
+.skeleton-input
+  position relative
+  font-family $skeletonFont
+  box-sizing border-box
+  padding 0
+  margin $skeletonMgBig $skeletonMgMedium
+  &__label
+    box-sizing border-box
+    font-size $skeletonInputLabelFontSize
+    padding 0 $skeletonMgSmall
+    color $skeletonInputLabelColor
+  &__wrapper
+    box-sizing border-box
+    position relative
+    border $skeletonInputBorder solid $skeletonInputBorderColor
+    border-radius $skeletonInputBorderRadius
+    color $skeletonInputInnerColor
+    &:focus-within
+      border-color $skeletonInputFocusColor
+  &--invalid &__wrapper
+    border-color $skeletonInputInvalidColor
+    border-bottom-left-radius 0
+  &__inner
+    position relative
+    box-sizing border-box
+    border none
+    outline none
+    background transparent
+    padding $skeletonMgMedium $skeletonMgBig
+    width 100%
+    font-size $skeletonInputInputFontSize
+  &__messages
+    box-sizing border-box
+    display inline-block
+    min-width 30%
+    max-width 85%
+    padding $skeletonMgTiny $skeletonMgBig
+    border-bottom-left-radius $skeletonInputMessageRadius
+    border-bottom-right-radius $skeletonInputMessageRadius
+    background $skeletonInputInvalidColor
+    color $skeletonInputInvalidFontColor
+    font-size $skeletonInputMessageFontSize
+
+
+
+$skeletonButtonColor ?= $skeletonColorBlack
+$skeletonButtonBgColor ?= $skeletonColorGray
+$skeletonButtonFocusColor ?= $skeletonColorBlack
+$skeletonButtonFocusBgColor ?= lighten($skeletonButtonBgColor, 20%)
+$skeletonButtonPrimaryColor ?= $skeletonColorWhite
+$skeletonButtonPrimaryBgColor ?= $skeletonColorBlue
+$skeletonButtonPrimaryFocusColor ?= $skeletonButtonPrimaryColor
+$skeletonButtonPrimaryFocusBgColor ?= lighten($skeletonButtonPrimaryBgColor, 20%)
+$skeletonButtonFontSize ?= $skeletonFontSize
+$skeletonButtonBorder ?= $skeletonBorder
+$skeletonButtonBorderRadius ?= $skeletonMgSmall
+
+.skeleton-button
+  box-sizing border-box
+  position relative
+  display inline-block
+  outline none
+  background $skeletonButtonBgColor
+  padding 0
+  margin $skeletonMgBig $skeletonMgMedium
+  border $skeletonButtonBorder solid $skeletonColorGray
+  border-radius $skeletonButtonBorderRadius
+  color $skeletonButtonColor
+  font-family $skeletonFont
+  &[disabled]
+    opacity .6
+  &__inner
+    box-sizing border-box
+    position relative
+    margin $skeletonMgMedium $skeletonMgBig
+    font-size $skeletonButtonFontSize
+  &:focus, &:hover
+    color $skeletonButtonFocusColor
+    background $skeletonButtonFocusBgColor
+    border-color $skeletonButtonFocusBgColor
+  &--primary
+    color $skeletonButtonPrimaryColor
+    background $skeletonButtonPrimaryBgColor
+    border-color $skeletonButtonPrimaryBgColor
+    &:focus, &:hover
+      color $skeletonButtonPrimaryFocusColor
+      background $skeletonButtonPrimaryFocusBgColor
+      border-color $skeletonButtonPrimaryFocusBgColor
+
+
+
+$skeletonFormFont ?= $skeletonFont
+$skeletonFormFontSize ?= $skeletonFontSize
+$skeletonFormTitleFont ?= $skeletonFormFont
+$skeletonFormTitleFontSize ?= $skeletonFontSize * 1.5
+$skeletonFormTitleColor ?= $skeletonColorBlack
+
+.skeleton-form
+  display block
+  font-family $skeletonFormFont
+  font-size $skeletonFormFontSize
+  box-sizing border-box
+  position relative
+  &__footer
+    text-align right
+  &__header, h3
+    font-family $skeletonFormTitleFont
+    font-size $skeletonFormTitleFontSize
+    color $skeletonFormTitleColor
+
+
+
+$skeletonMessageFont ?= $skeletonFont
+$skeletonMessageFontSize ?= $skeletonFontSize
+$skeletonMessageColor ?= $skeletonColorDarkRed
+$skeletonMessageBgColor ?= $skeletonColorLightRed
+$skeletonMessageBorder ?= $skeletonBorder
+$skeletonMessageBorderRadius ?= $skeletonMgBig
+
+.skeleton-message
+  font-family $skeletonMessageFont
+  box-sizing border-box
+  position relative
+  font-size $skeletonMessageFontSize
+  color $skeletonMessageColor
+  background $skeletonMessageBgColor
+  border $skeletonMessageBorder solid $skeletonMessageColor
+  border-radius $skeletonMessageBorderRadius
+  padding $skeletonMgBig $skeletonMgHuge
+  margin $skeletonMgBig $skeletonMgMedium
+

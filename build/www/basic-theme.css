@@ -1,0 +1,116 @@
+.skeleton-input {
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 10px 6px;
+}
+.skeleton-input__label {
+  box-sizing: border-box;
+  font-size: 0.8rem;
+  padding: 0 4px;
+  color: #696969;
+}
+.skeleton-input__wrapper {
+  box-sizing: border-box;
+  position: relative;
+  border: 2px solid #d3d3d3;
+  border-radius: 4px;
+  color: #696969;
+}
+.skeleton-input__wrapper:focus-within {
+  border-color: #6495ed;
+}
+.skeleton-input--invalid .skeleton-input__wrapper {
+  border-color: #cd5c5c;
+  border-bottom-left-radius: 0;
+}
+.skeleton-input__inner {
+  position: relative;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 6px 10px;
+  width: 100%;
+  font-size: 0.8rem;
+}
+.skeleton-input__messages {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 30%;
+  max-width: 85%;
+  padding: 2px 10px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: #cd5c5c;
+  color: #f8f8ff;
+  font-size: 0.8rem;
+}
+.skeleton-button {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  background: #d3d3d3;
+  padding: 0;
+  margin: 10px 6px;
+  border: 2px solid #d3d3d3;
+  border-radius: 4px;
+  color: #696969;
+  font-family: 'Arial', sans-serif;
+}
+.skeleton-button[disabled] {
+  opacity: 0.6;
+}
+.skeleton-button__inner {
+  box-sizing: border-box;
+  position: relative;
+  margin: 6px 10px;
+  font-size: 0.8rem;
+}
+.skeleton-button:focus,
+.skeleton-button:hover {
+  color: #696969;
+  background: #dcdcdc;
+  border-color: #dcdcdc;
+}
+.skeleton-button--primary {
+  color: #f8f8ff;
+  background: #6495ed;
+  border-color: #6495ed;
+}
+.skeleton-button--primary:focus,
+.skeleton-button--primary:hover {
+  color: #f8f8ff;
+  background: #83aaf1;
+  border-color: #83aaf1;
+}
+.skeleton-form {
+  display: block;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.8rem;
+  box-sizing: border-box;
+  position: relative;
+}
+.skeleton-form__footer {
+  text-align: right;
+}
+.skeleton-form__header,
+.skeleton-form h3 {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem;
+  color: #696969;
+}
+.skeleton-message {
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 0.8rem;
+  color: #800000;
+  background: #f08080;
+  border: 2px solid #800000;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px 6px;
+}

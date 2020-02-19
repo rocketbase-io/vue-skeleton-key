@@ -5,6 +5,8 @@ import paths from "rollup-plugin-ts-paths";
 import apiExtractor from "@rocketbase/rollup-plugin-api-extractor";
 import execute from "@rocketbase/rollup-plugin-exec";
 import sequential from "@rocketbase/rollup-plugin-sequential";
+import vueTemplates from "./rollup-plugin-vue-template";
+import nodeResolve from "rollup-plugin-node-resolve";
 import { name, globals, external } from "./package";
 import banner from "./banner";
 
@@ -21,10 +23,12 @@ export default {
   })),
   external,
   plugins: [
-    paths(),
-    ts({ tsconfig: "tsconfig.build.json" }),
+    vueTemplates(),
     sourcemaps(),
+    paths(),
     commonjs(),
+    nodeResolve(),
+    ts({ tsconfig: "tsconfig.build.json", exclude: ["**/*.html"] }),
     sequential(
       [
         apiExtractor({
@@ -35,9 +39,13 @@ export default {
         execute(
           [
             "api-documenter markdown --output-folder docs --input-folder dist",
-            "rimraf temp api-extractor.json"
+            "rimraf temp api-extractor.json dist/*.*.d.ts",
+            "cp build/www/basic-theme.css dist/VueSkeletonKey.css",
+            "cp build/www/basic-theme.styl dist/VueSkeletonKey.styl"
           ],
-          { stdio: "ignore" }
+          {
+            stdio: "ignore"
+          }
         )
       ],
       { once: true }

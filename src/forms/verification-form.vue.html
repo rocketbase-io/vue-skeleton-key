@@ -1,0 +1,11 @@
+<skeleton-form :busy="busy" v-model="value" :errors="errors" :required="['verification']" @submit="onSubmit">
+  <template #header>
+    <h3>Verification</h3>
+  </template>
+  <template #default="{ errors }">
+    <skeleton-input v-model="verificationLocal" :messages="errors.verification" label="Token" />
+  </template>
+  <template #footer="{ invalid }">
+    <skeleton-button text="Verify" primary submit :disabled="invalid" />
+  </template>
+</skeleton-form>

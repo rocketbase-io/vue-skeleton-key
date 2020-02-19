@@ -1,11 +1,17 @@
 {
-  "branches": ["master"],
+  "branches": [{
+    "name": "master"
+  },{
+    "name": "develop",
+    "channel": "develop",
+    "prerelease": "develop"
+  }],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/changelog",
     "@semantic-release/release-notes-generator",
     ["@semantic-release/github", {
-      "assets": ["dist/**"]
+      "assets": ["dist/*"]
     }],
     "@semantic-release/git",
     "@semantic-release/npm"
