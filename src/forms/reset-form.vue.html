@@ -1,0 +1,12 @@
+<skeleton-form :busy="busy" v-model="value" @submit="onSubmit" :required="['username', 'password']">
+  <template #header>
+    <h3>{{tt("skeleton-key.reset.title", "Reset Password")}}</h3>
+  </template>
+  <template #default="{ value }">
+    <skeleton-input type="password" :label="tt('skeleton-key.reset.password', 'Password')" v-model="value.password" />
+    <skeleton-input type="password" :label="tt('skeleton-key.reset.password2', ' Repeat Password')" v-model="value.password2" />
+  </template>
+  <template #footer="{ invalid }">
+    <skeleton-button :text="tt('skeleton-key.reset.submit', 'Reset')" primary submit :disabled="invalid" />
+  </template>
+</skeleton-form>
