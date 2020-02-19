@@ -3,6 +3,11 @@ import { SkeletonKey, SkeletonKeyOptions } from "@rocketbase/skeleton-key";
 import { VueSkeletonKeyAuth } from "src/vue-skeleton-key-auth";
 import { instances } from "src/instances";
 import { linkProperties } from "src/link-properties";
+import * as Forms from "src/forms";
+
+interface VueSkeletonKeyOptions extends SkeletonKeyOptions {
+  formComponents?: true | string;
+}
 
 /**
  * Vue Wrapper for @rocketbase/skeleton-key
@@ -30,7 +35,7 @@ import { linkProperties } from "src/link-properties";
  * @param options - The options to pass to skeleton-key;
  * @public
  */
-export function VueSkeletonKey<UserExtension, TokenExtension>(vue: typeof Vue, options: SkeletonKeyOptions) {
+export function VueSkeletonKey<UserExtension, TokenExtension>(vue: typeof Vue, options: VueSkeletonKeyOptions) {
   // Assign singleton instances
   instances.auth = new SkeletonKey<UserExtension, TokenExtension>(options);
   instances.vue = new VueSkeletonKeyAuth<UserExtension, TokenExtension>();
@@ -57,4 +62,10 @@ export function VueSkeletonKey<UserExtension, TokenExtension>(vue: typeof Vue, o
 
   // Attach vue component to Vue prototype
   vue.prototype.$auth = instance;
+
+  // Register form components on demand
+  if (options.formComponents) {
+    const prefix = typeof options.formComponents === "string" ? options.formComponents : "Skeleton";
+    Object.entries(Forms).forEach(([name, component]) => vue.component(prefix + name, component));
+  }
 }
