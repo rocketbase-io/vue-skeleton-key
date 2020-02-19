@@ -1,3 +1,10 @@
+# [1.7.0-develop.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.6.0...v1.7.0-develop.1) (2020-02-19)
+
+
+### Features
+
+* optional i18n with vue-i18n ([df79ecb](https://github.com/rocketbase-io/vue-skeleton-key/commit/df79ecb5cd293398c56b9973803cd689585abde4))
+
 # [1.6.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.5.0...v1.6.0) (2020-02-19)
 
 
