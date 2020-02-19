@@ -1,3 +1,10 @@
+# [1.7.0-develop.4](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.3...v1.7.0-develop.4) (2020-02-19)
+
+
+### Features
+
+* add change password form ([75342d5](https://github.com/rocketbase-io/vue-skeleton-key/commit/75342d5de58ab7d85db18fddb18241c536e5153e))
+
 # [1.7.0-develop.3](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.2...v1.7.0-develop.3) (2020-02-19)
 
 
