@@ -1,3 +1,15 @@
+# [1.7.0-develop.3](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.2...v1.7.0-develop.3) (2020-02-19)
+
+
+### Bug Fixes
+
+* remove testing values from login form ([fdc5adf](https://github.com/rocketbase-io/vue-skeleton-key/commit/fdc5adfb759c49ba23a704d7946ade6ced075d49))
+
+
+### Features
+
+* reset, forgot forms, form events ([7792758](https://github.com/rocketbase-io/vue-skeleton-key/commit/7792758b8df46b398518a53b81b1a1d19df98d82))
+
 # [1.7.0-develop.2](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.1...v1.7.0-develop.2) (2020-02-19)
 
 
