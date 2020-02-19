@@ -1,3 +1,10 @@
+# [1.7.0-develop.2](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.1...v1.7.0-develop.2) (2020-02-19)
+
+
+### Bug Fixes
+
+* move messages to top of login form ([3937222](https://github.com/rocketbase-io/vue-skeleton-key/commit/39372225db2b7072a75359d72c598a93f4a29979))
+
 # [1.7.0-develop.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.6.0...v1.7.0-develop.1) (2020-02-19)
 
 
