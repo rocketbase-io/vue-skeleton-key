@@ -4,7 +4,8 @@ import { VueSkeletonKey } from "src/vue-skeleton-key";
 
 Vue.use(VueSkeletonKey, {
   storageKey: "test",
-  intercept: false
+  intercept: false,
+  formComponents: true
 });
 
 describe("vue-skeleton-key.ts", () => {
