@@ -1,3 +1,18 @@
+# [1.8.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0...v1.8.0) (2020-02-25)
+
+
+### Bug Fixes
+
+* move messages to top of login form ([3937222](https://github.com/rocketbase-io/vue-skeleton-key/commit/39372225db2b7072a75359d72c598a93f4a29979))
+* remove testing values from login form ([fdc5adf](https://github.com/rocketbase-io/vue-skeleton-key/commit/fdc5adfb759c49ba23a704d7946ade6ced075d49))
+
+
+### Features
+
+* add change password form ([75342d5](https://github.com/rocketbase-io/vue-skeleton-key/commit/75342d5de58ab7d85db18fddb18241c536e5153e))
+* register form components on demand ([3ba8101](https://github.com/rocketbase-io/vue-skeleton-key/commit/3ba81014b76622f14b37a5e5332091221ddee202))
+* reset, forgot forms, form events ([7792758](https://github.com/rocketbase-io/vue-skeleton-key/commit/7792758b8df46b398518a53b81b1a1d19df98d82))
+
 # [1.7.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.6.0...v1.7.0) (2020-02-19)
 
 
