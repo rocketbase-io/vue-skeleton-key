@@ -1,3 +1,10 @@
+# [1.7.0-develop.5](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.4...v1.7.0-develop.5) (2020-02-25)
+
+
+### Features
+
+* register form components on demand ([3ba8101](https://github.com/rocketbase-io/vue-skeleton-key/commit/3ba81014b76622f14b37a5e5332091221ddee202))
+
 # [1.7.0-develop.4](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.3...v1.7.0-develop.4) (2020-02-19)
 
 
