@@ -36,8 +36,10 @@ export default class InviteForm extends Vue {
     try {
       await this.client.transformInviteToUser(value);
       this.errors = {};
+      this.$emit("success");
     } catch ({ response }) {
       if (response?.data?.errors) this.errors = response.data.errors;
+      this.$emit("error");
     } finally {
       this.busy = false;
     }

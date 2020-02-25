@@ -35,8 +35,10 @@ export default class VerificationForm extends Vue {
       this.$auth.jwtBundle = await this.client.verify(verification!);
       this.errors = {};
       await this.$auth.refreshInfo();
+      this.$emit("success");
     } catch ({ response }) {
       if (response?.data?.errors) this.errors = response.data.errors;
+      this.$emit("error");
     } finally {
       this.busy = false;
     }
