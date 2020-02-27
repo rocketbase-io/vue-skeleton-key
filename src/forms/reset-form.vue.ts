@@ -15,10 +15,17 @@ import render from "./reset-form.vue.html";
   render
 })
 export default class ResetForm extends Vue {
-  @Data({ default: {} }) private value!: { password: string; password2: string };
-  @Data({ default: {} }) private errors!: any;
-  @Data() private busy!: boolean;
-  @SProp() public verification!: string;
+  @Data({ default: {} })
+  private value!: { password: string; password2: string };
+
+  @Data({ default: {} })
+  private errors!: any;
+
+  @Data()
+  private busy!: boolean;
+
+  @SProp()
+  public verification!: string;
 
   private tt(this: any, key: string, fallback: string) {
     return this.$t ? this.$t(key) || fallback : fallback;

@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { Component, Data } from "@rocketbase/vue-extra-decorators";
+import { Component, Data, SProp } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
 import Vue from "vue";
 import render from "./forgot-form.vue.html";
@@ -14,21 +14,30 @@ import render from "./forgot-form.vue.html";
   render
 })
 export default class ForgotForm extends Vue {
-  @Data({ default: {} }) private value!: { username: string };
-  @Data({ default: [] }) private messages!: string[];
-  @Data() private busy!: boolean;
+  @Data({ default: {} })
+  private value!: { username: string };
+
+  @Data({ default: [] })
+  private messages!: string[];
+
+  @Data()
+  private busy!: boolean;
+
+  @SProp({ default: () => `${location.origin + location.pathname}/verification` })
+  public verificationUrl!: string;
 
   private tt(this: any, key: string, fallback: string) {
     return this.$t ? this.$t(key) || fallback : fallback;
   }
 
   private async onSubmit() {
-    const { value } = this;
+    const { value, verificationUrl } = this;
     this.busy = true;
     try {
       const { username } = value;
       await this.$auth.client.forgotPassword({
-        [username.includes("@") ? "email" : "username"]: username
+        [username.includes("@") ? "email" : "username"]: username,
+        verificationUrl
       });
       this.$emit("success");
     } catch ({ response }) {
