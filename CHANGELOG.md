@@ -1,3 +1,10 @@
+# [1.7.0-develop.6](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.5...v1.7.0-develop.6) (2020-02-27)
+
+
+### Bug Fixes
+
+* forgot form varificationUrl, reset form verification ([7276dd0](https://github.com/rocketbase-io/vue-skeleton-key/commit/7276dd07464d0d7b01fd9f4d8e49e3350a717bac))
+
 # [1.7.0-develop.5](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.4...v1.7.0-develop.5) (2020-02-25)
 
 
