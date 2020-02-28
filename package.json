@@ -41,10 +41,10 @@
   },
   "homepage": "https://github.com/rocketbase-io/vue-skeleton-key#readme",
   "dependencies": {
+    "@babel/types": "latest",
     "@rocketbase/skeleton-key": "^0.7.1",
-    "@rocketbase/vue-extra-decorators": "^2.0.9",
-    "vue": "^2.6.11",
-    "@babel/types": "latest"
+    "@rocketbase/vue-extra-decorators": "^2.3.0",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

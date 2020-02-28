@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 import { ValidationResponse } from "@rocketbase/skeleton-key";
-import { Component, Data, Debounce, SProp, Watch } from "@rocketbase/vue-extra-decorators";
+import { Blocking, BusyState, Component, Data, Debounce, Emit, EmitError, On, SProp, Watch } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
 import Vue from "vue";
 import render from "./reset-form.vue.html";
@@ -15,10 +15,27 @@ import render from "./reset-form.vue.html";
   render
 })
 export default class ResetForm extends Vue {
-  @Data({ default: {} }) private value!: { password: string; password2: string };
-  @Data({ default: {} }) private errors!: any;
-  @Data() private busy!: boolean;
-  @SProp() public verification!: string;
+  @Data({ default: {} })
+  private value!: { password: string; password2: string };
+
+  @Data({ default: {} })
+  private errors!: any;
+
+  @BusyState()
+  private busy!: boolean;
+
+  @SProp({
+    default(this: any) {
+      const query = Object.fromEntries(
+        location.search
+          .replace("?", "")
+          .split("&")
+          .map(it => it.split("=").map(decodeURIComponent))
+      );
+      return query.verification;
+    }
+  })
+  public verification!: string;
 
   private tt(this: any, key: string, fallback: string) {
     return this.$t ? this.$t(key) || fallback : fallback;
@@ -28,23 +45,22 @@ export default class ResetForm extends Vue {
     return this.$auth.client;
   }
 
+  @Blocking()
+  @Emit("success")
+  @EmitError("error")
   private async onSubmit() {
     const { value, verification } = this;
-    this.busy = true;
-    try {
-      const { password } = value;
-      await this.client.resetPassword({
-        verification,
-        password
-      });
-      this.errors = {};
-      this.$emit("success");
-    } catch ({ response }) {
-      if (response?.data?.errors) this.errors = response.data.errors;
-      this.$emit("error");
-    } finally {
-      this.busy = false;
-    }
+    const { password } = value;
+    await this.client.resetPassword({
+      verification,
+      password
+    });
+    this.errors = {};
+  }
+
+  @On("error")
+  private onError({ response }: any) {
+    if (response?.data?.errors) this.errors = response.data.errors;
   }
 
   private errorsFor({ valid, errorCodes }: ValidationResponse) {
