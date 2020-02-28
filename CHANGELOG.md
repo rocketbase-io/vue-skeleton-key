@@ -1,3 +1,11 @@
+## [1.8.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.8.0...v1.8.1) (2020-02-28)
+
+
+### Bug Fixes
+
+* forgot form varificationUrl, reset form verification ([7276dd0](https://github.com/rocketbase-io/vue-skeleton-key/commit/7276dd07464d0d7b01fd9f4d8e49e3350a717bac))
+* update deps, default parameters ([af318c6](https://github.com/rocketbase-io/vue-skeleton-key/commit/af318c6b24c50e7659ca5df179b912e957dfc47f))
+
 # [1.8.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0...v1.8.0) (2020-02-25)
 
 
