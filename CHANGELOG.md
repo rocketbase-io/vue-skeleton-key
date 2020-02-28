@@ -1,3 +1,10 @@
+# [1.7.0-develop.7](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.6...v1.7.0-develop.7) (2020-02-28)
+
+
+### Bug Fixes
+
+* update deps, default parameters ([af318c6](https://github.com/rocketbase-io/vue-skeleton-key/commit/af318c6b24c50e7659ca5df179b912e957dfc47f))
+
 # [1.7.0-develop.6](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.5...v1.7.0-develop.6) (2020-02-27)
 
 
