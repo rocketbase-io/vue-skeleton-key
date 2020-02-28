@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { Component, Data, Debounce, Watch } from "@rocketbase/vue-extra-decorators";
+import { Blocking, BusyState, Component, Data, Debounce, Emit, EmitError, On, Watch } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
 import { AuthClient, RegistrationRequest, ValidationResponse } from "@rocketbase/skeleton-key";
 import Vue from "vue";
@@ -17,7 +17,7 @@ import render from "./register-form.vue.html";
 export default class RegisterForm extends Vue {
   @Data({ default: {} }) private value!: RegistrationRequest & { password2: string };
   @Data({ default: {} }) private errors!: any;
-  @Data() private busy!: boolean;
+  @BusyState() private busy!: boolean;
 
   private get client(): AuthClient {
     return this.$auth.client;
@@ -27,19 +27,18 @@ export default class RegisterForm extends Vue {
     return this.$t ? this.$t(key) || fallback : fallback;
   }
 
+  @Blocking()
+  @Emit("success")
+  @EmitError("error")
   private async onSubmit() {
     const { value } = this;
-    this.busy = true;
-    try {
-      await this.client.register(value);
-      this.errors = {};
-      this.$emit("success");
-    } catch ({ response }) {
-      if (response?.data?.errors) this.errors = response.data.errors;
-      this.$emit("error");
-    } finally {
-      this.busy = false;
-    }
+    await this.client.register(value);
+    this.errors = {};
+  }
+
+  @On("error")
+  private onError({ response }: any) {
+    if (response?.data?.errors) this.errors = response.data.errors;
   }
 
   private errorsFor({ valid, errorCodes }: ValidationResponse) {

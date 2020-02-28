@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { Component, Data, SProp } from "@rocketbase/vue-extra-decorators";
+import { Blocking, BusyState, Component, Data, Emit, EmitError, On, SProp } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
 import Vue from "vue";
 import render from "./forgot-form.vue.html";
@@ -20,32 +20,33 @@ export default class ForgotForm extends Vue {
   @Data({ default: [] })
   private messages!: string[];
 
-  @Data()
+  @BusyState()
   private busy!: boolean;
 
   @SProp({ default: () => `${location.origin + location.pathname}/verification` })
-  public verificationUrl!: string;
+  public passwordResetUrl!: string;
 
   private tt(this: any, key: string, fallback: string) {
     return this.$t ? this.$t(key) || fallback : fallback;
   }
 
+  @Blocking()
+  @Emit("success")
+  @EmitError("error")
   private async onSubmit() {
-    const { value, verificationUrl } = this;
-    this.busy = true;
-    try {
-      const { username } = value;
-      await this.$auth.client.forgotPassword({
-        [username.includes("@") ? "email" : "username"]: username,
-        verificationUrl
-      });
-      this.$emit("success");
-    } catch ({ response }) {
-      if (response?.data?.errors) this.messages = Object.values(response.data.errors).flat();
-      else this.messages = [this.tt("skeleton-key.forgot.invalid", "Invalid Username or Email")];
-      this.$emit("error");
-    } finally {
-      this.busy = false;
-    }
+    const { value, passwordResetUrl } = this;
+    const verificationUrl = passwordResetUrl;
+    const { username } = value;
+    await this.$auth.client.forgotPassword({
+      [username.includes("@") ? "email" : "username"]: username,
+      verificationUrl,
+      passwordResetUrl
+    } as any);
+  }
+
+  @On("error")
+  private onError({ response }: any) {
+    if (response?.data?.errors) this.messages = Object.values(response.data.errors).flat();
+    else this.messages = [this.tt("skeleton-key.forgot.invalid", "Invalid Username or Email")];
   }
 }
