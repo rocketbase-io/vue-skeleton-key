@@ -1,49 +1,24 @@
-# [1.7.0-develop.7](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.6...v1.7.0-develop.7) (2020-02-28)
-
-
-### Bug Fixes
-
-* update deps, default parameters ([af318c6](https://github.com/rocketbase-io/vue-skeleton-key/commit/af318c6b24c50e7659ca5df179b912e957dfc47f))
-
-# [1.7.0-develop.6](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.5...v1.7.0-develop.6) (2020-02-27)
-
-
-### Bug Fixes
-
-* forgot form varificationUrl, reset form verification ([7276dd0](https://github.com/rocketbase-io/vue-skeleton-key/commit/7276dd07464d0d7b01fd9f4d8e49e3350a717bac))
-
-# [1.7.0-develop.5](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.4...v1.7.0-develop.5) (2020-02-25)
-
-
-### Features
-
-* register form components on demand ([3ba8101](https://github.com/rocketbase-io/vue-skeleton-key/commit/3ba81014b76622f14b37a5e5332091221ddee202))
-
-# [1.7.0-develop.4](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.3...v1.7.0-develop.4) (2020-02-19)
-
-
-### Features
-
-* add change password form ([75342d5](https://github.com/rocketbase-io/vue-skeleton-key/commit/75342d5de58ab7d85db18fddb18241c536e5153e))
-
-# [1.7.0-develop.3](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.2...v1.7.0-develop.3) (2020-02-19)
-
-
-### Bug Fixes
-
-* remove testing values from login form ([fdc5adf](https://github.com/rocketbase-io/vue-skeleton-key/commit/fdc5adfb759c49ba23a704d7946ade6ced075d49))
-
-
-### Features
-
-* reset, forgot forms, form events ([7792758](https://github.com/rocketbase-io/vue-skeleton-key/commit/7792758b8df46b398518a53b81b1a1d19df98d82))
-
-# [1.7.0-develop.2](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0-develop.1...v1.7.0-develop.2) (2020-02-19)
+# [1.8.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.7.0...v1.8.0) (2020-02-25)
 
 
 ### Bug Fixes
 
 * move messages to top of login form ([3937222](https://github.com/rocketbase-io/vue-skeleton-key/commit/39372225db2b7072a75359d72c598a93f4a29979))
+* remove testing values from login form ([fdc5adf](https://github.com/rocketbase-io/vue-skeleton-key/commit/fdc5adfb759c49ba23a704d7946ade6ced075d49))
+
+
+### Features
+
+* add change password form ([75342d5](https://github.com/rocketbase-io/vue-skeleton-key/commit/75342d5de58ab7d85db18fddb18241c536e5153e))
+* register form components on demand ([3ba8101](https://github.com/rocketbase-io/vue-skeleton-key/commit/3ba81014b76622f14b37a5e5332091221ddee202))
+* reset, forgot forms, form events ([7792758](https://github.com/rocketbase-io/vue-skeleton-key/commit/7792758b8df46b398518a53b81b1a1d19df98d82))
+
+# [1.7.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.6.0...v1.7.0) (2020-02-19)
+
+
+### Features
+
+* optional i18n with vue-i18n ([df79ecb](https://github.com/rocketbase-io/vue-skeleton-key/commit/df79ecb5cd293398c56b9973803cd689585abde4))
 
 # [1.7.0-develop.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.6.0...v1.7.0-develop.1) (2020-02-19)
 
