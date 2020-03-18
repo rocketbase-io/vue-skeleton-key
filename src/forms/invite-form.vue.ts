@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { Blocking, BusyState, Component, Data, Debounce, Emit, EmitError, On, SProp, Watch } from "@rocketbase/vue-extra-decorators";
+import { Blocking, BProp, BusyState, Component, Data, Debounce, Emit, EmitError, On, SProp, Watch } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
 import { AuthClient, ConfirmInviteRequest, ValidationResponse } from "@rocketbase/skeleton-key";
 import Vue from "vue";
@@ -16,6 +16,7 @@ import render from "./invite-form.vue.html";
 })
 export default class InviteForm extends Vue {
   @SProp() public inviteId!: string;
+  @BProp({ default: false }) public validInvite!: boolean;
   @Data({ default: {} }) private value!: ConfirmInviteRequest & { password2: string };
   @Data({ default: {} }) private errors!: any;
   @Data() private message!: string;
@@ -62,14 +63,22 @@ export default class InviteForm extends Vue {
   @Watch({ prop: "inviteId", immediate: true })
   private async onInviteChange(inviteId: string) {
     this.value = { ...this.value, inviteId };
-    if (!inviteId) return;
-    const { email, firstName, lastName, invitor, message } = await this.client.verifyInvite(inviteId);
-    Object.entries({ email, firstName, lastName }).forEach(([key, value]) => {
-      if (!value) return;
-      this.value = { ...this.value, [key]: value };
-    });
-    this.invitor = invitor;
-    this.message = message!;
+    if (!inviteId) {
+      this.validInvite = false;
+      return;
+    }
+    try {
+      const { email, firstName, lastName, invitor, message } = await this.client.verifyInvite(inviteId);
+      Object.entries({ email, firstName, lastName }).forEach(([key, value]) => {
+        if (!value) return;
+        this.value = { ...this.value, [key]: value };
+      });
+      this.invitor = invitor;
+      this.message = message!;
+      this.validInvite = true;
+    } catch (e) {
+      this.validInvite = false;
+    }
   }
 
   @Watch("value.username")
