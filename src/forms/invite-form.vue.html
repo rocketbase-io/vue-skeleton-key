@@ -6,13 +6,19 @@
   @submit="onSubmit"
 >
   <template #header>
-    <h3>{{tt("skeleton-key.invite.title", "Register")}}</h3>
-    <div v-if="invitor || message">
-      <h4 v-text="invitor" v-if="invitor" />
-      <blockquote v-text="message" v-if="message" />
+    <div v-if="validInvite">
+      <h3>{{tt("skeleton-key.invite.title", "Invite")}}</h3>
+      <div v-if="invitor || message">
+        <h4 v-text="invitor" v-if="invitor" />
+        <blockquote v-text="message" v-if="message" />
+      </div>
+    </div>
+    <div v-else>
+      <h3>{{tt("skeleton-key.invite.invalid.title", "Invalid Invite")}}</h3>
+      <p>{{tt("skeleton-key.invite.invalid.message", "Your invite has expired or is invalid. Please contact admin.")}}</p>
     </div>
   </template>
-  <template #default="{ errors, value }">
+  <template #default="{ errors, value }" v-if="validInvite">
     <skeleton-input v-model="value.username" :messages="errors.username" :label="tt('skeleton-key.invite.username', 'Username')" />
     <skeleton-input v-model="value.email" :messages="errors.email" type="email" :label="tt('skeleton-key.invite.email', 'Email')" />
     <skeleton-input v-model="value.password" :messages="errors.password" type="password" :label="tt('skeleton-key.invite.password', 'Password')" />
@@ -20,7 +26,7 @@
     <skeleton-input v-model="value.firstName" :messages="errors.firstName" :label="tt('skeleton-key.invite.firstName', 'First Name')" />
     <skeleton-input v-model="value.lastName" :messages="errors.lastName" :label="tt('skeleton-key.invite.lastName', 'Last Name')" />
   </template>
-  <template #footer="{ invalid }">
+  <template #footer="{ invalid }" v-if="validInvite">
     <skeleton-button :text="tt('skeleton-key.invite.submit', 'Register')" primary submit :disabled="invalid" />
   </template>
 </skeleton-form>
