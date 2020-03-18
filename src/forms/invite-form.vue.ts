@@ -117,9 +117,3 @@ export default class InviteForm extends Vue {
     if (val) this.replaceErrors("email", await this.client.validateEmail(val));
   }
 }
-
-export default interface InviteForm extends Vue {
-  $on(event: "invite", callback: Function): this;
-  $on(event: "success", callback: Function): this;
-  $on(event: "error", callback: Function): this;
-}
