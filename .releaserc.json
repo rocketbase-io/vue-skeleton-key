@@ -10,9 +10,6 @@
     "@semantic-release/commit-analyzer",
     "@semantic-release/changelog",
     "@semantic-release/release-notes-generator",
-    ["@semantic-release/github", {
-      "assets": ["dist/*"]
-    }],
     "@semantic-release/git",
     "@semantic-release/npm"
   ]
