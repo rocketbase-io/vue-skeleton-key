@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { Blocking, BusyState, Component, Data, Debounce, Emit, EmitError, On, Watch } from "@rocketbase/vue-extra-decorators";
+import { Blocking, BProp, BusyState, Component, Data, Debounce, Emit, EmitError, On, Watch } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
 import { AuthClient, RegistrationRequest, ValidationResponse } from "@rocketbase/skeleton-key";
 import Vue from "vue";
@@ -15,6 +15,7 @@ import render from "./register-form.vue.html";
   render
 })
 export default class RegisterForm extends Vue {
+  @BProp() public hideTitle!: boolean;
   @Data({ default: {} }) private value!: RegistrationRequest & { password2: string };
   @Data({ default: {} }) private errors!: any;
   @BusyState() private busy!: boolean;

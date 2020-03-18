@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { Blocking, BusyState, Component, Data, Emit, EmitError, On, SProp } from "@rocketbase/vue-extra-decorators";
+import { Blocking, BProp, BusyState, Component, Data, Emit, EmitError, On, SProp } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
 import Vue from "vue";
 import render from "./forgot-form.vue.html";
@@ -14,6 +14,8 @@ import render from "./forgot-form.vue.html";
   render
 })
 export default class ForgotForm extends Vue {
+  @BProp() public hideTitle!: boolean;
+
   @Data({ default: {} })
   private value!: { username: string };
 

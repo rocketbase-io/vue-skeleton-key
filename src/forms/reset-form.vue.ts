@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 import { ValidationResponse } from "@rocketbase/skeleton-key";
-import { Blocking, BusyState, Component, Data, Debounce, Emit, EmitError, On, SProp, Watch } from "@rocketbase/vue-extra-decorators";
+import { Blocking, BProp, BusyState, Component, Data, Debounce, Emit, EmitError, On, SProp, Watch } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
 import Vue from "vue";
 import render from "./reset-form.vue.html";
@@ -15,6 +15,8 @@ import render from "./reset-form.vue.html";
   render
 })
 export default class ResetForm extends Vue {
+  @BProp() public hideTitle!: boolean;
+
   @Data({ default: {} })
   private value!: { password: string; password2: string };
 

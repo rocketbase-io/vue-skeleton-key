@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 import { ValidationResponse } from "@rocketbase/skeleton-key";
-import { Blocking, BusyState, Component, Data, Debounce, Emit, EmitError, On, Watch } from "@rocketbase/vue-extra-decorators";
+import { Blocking, BProp, BusyState, Component, Data, Debounce, Emit, EmitError, On, Watch } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
 import Vue from "vue";
 import render from "./change-password-form.vue.html";
@@ -15,6 +15,7 @@ import render from "./change-password-form.vue.html";
   render
 })
 export default class ChangePasswordForm extends Vue {
+  @BProp() public hideTitle!: boolean;
   @Data({ default: {} }) private value!: { currentPassword: string; newPassword: string; newPassword2: string };
   @Data({ default: {} }) private errors!: any;
   @BusyState() private busy!: boolean;

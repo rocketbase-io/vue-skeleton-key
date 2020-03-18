@@ -6,7 +6,7 @@
   @submit="onSubmit"
 >
   <template #header>
-    <h3>{{tt("skeleton-key.register.title", "Register")}}</h3>
+    <h3 v-if="!hideTitle">{{tt("skeleton-key.register.title", "Register")}}</h3>
   </template>
   <template #default="{ errors, value }">
     <skeleton-input v-model="value.username" :messages="errors.username" :label="tt('skeleton-key.register.username', 'Username')" />

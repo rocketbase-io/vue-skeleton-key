@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { Component, Data, Watch, SProp, BusyState, Blocking, On } from "@rocketbase/vue-extra-decorators";
+import { Component, Data, Watch, SProp, BusyState, Blocking, On, BProp } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput } from "src/components";
 import { AuthClient, ValidationResponse } from "@rocketbase/skeleton-key";
 import Vue from "vue";
@@ -14,6 +14,8 @@ import render from "./verification-form.vue.html";
   render
 })
 export default class VerificationForm extends Vue {
+  @BProp() public hideTitle!: boolean;
+
   @Data({ default: {} }) private value!: { verification?: string };
   @Data({ default: {} }) private errors!: { verification?: string[] };
   @SProp({ model: true }) public verification!: string | null;
