@@ -16,7 +16,9 @@ import render from "./invite-form.vue.html";
 })
 export default class InviteForm extends Vue {
   @SProp() public inviteId!: string;
-  @BProp({ default: false }) public validInvite!: boolean;
+  @BProp() public hideTitle!: boolean;
+  @BProp() public hideInvite!: boolean;
+  @Data({ default: false }) private validInvite!: boolean;
   @Data({ default: {} }) private value!: ConfirmInviteRequest & { password2: string };
   @Data({ default: {} }) private errors!: any;
   @Data() private message!: string;
@@ -68,13 +70,16 @@ export default class InviteForm extends Vue {
       return;
     }
     try {
-      const { email, firstName, lastName, invitor, message } = await this.client.verifyInvite(inviteId);
+      const appInviteRead = await this.client.verifyInvite(inviteId);
+      const { email, firstName, lastName, invitor, message } = appInviteRead;
       Object.entries({ email, firstName, lastName }).forEach(([key, value]) => {
         if (!value) return;
         this.value = { ...this.value, [key]: value };
       });
       this.invitor = invitor;
       this.message = message!;
+
+      this.$emit("invite", appInviteRead);
       this.validInvite = true;
     } catch (e) {
       this.validInvite = false;
@@ -111,4 +116,10 @@ export default class InviteForm extends Vue {
     const val = this.value.email;
     if (val) this.replaceErrors("email", await this.client.validateEmail(val));
   }
+}
+
+export default interface InviteForm extends Vue {
+  $on(event: "invite", callback: Function): this;
+  $on(event: "success", callback: Function): this;
+  $on(event: "error", callback: Function): this;
 }
