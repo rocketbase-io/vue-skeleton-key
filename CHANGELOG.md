@@ -1,4 +1,4 @@
-## [1.8.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.8.0...v1.8.1) (2020-02-28)
+## [1.8.1-develop.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.8.0...v1.8.1-develop.1) (2020-02-28)
 
 
 ### Bug Fixes
