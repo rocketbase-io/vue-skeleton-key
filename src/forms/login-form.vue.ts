@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { Blocking, BProp, BusyState, Component, Data, Emit, EmitError, On } from "@rocketbase/vue-extra-decorators";
+import { Blocking, BProp, BusyState, Component, Data, Emit, EmitError, On, Watch } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
 import Vue from "vue";
 import render from "./login-form.vue.html";
@@ -29,6 +29,11 @@ export default class LoginForm extends Vue {
   private async onSubmit() {
     const { value } = this;
     await this.$auth.login(value.username, value.password);
+  }
+
+  @Watch("busy")
+  private busyChanged(busy: boolean) {
+    this.$emit("busy", busy);
   }
 
   @On("error")

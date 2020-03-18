@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { Blocking, BProp, BusyState, Component, Data, Emit, EmitError, On, SProp } from "@rocketbase/vue-extra-decorators";
+import { Blocking, BProp, BusyState, Component, Data, Emit, EmitError, On, SProp, Watch } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
 import Vue from "vue";
 import render from "./forgot-form.vue.html";
@@ -44,6 +44,11 @@ export default class ForgotForm extends Vue {
       verificationUrl,
       passwordResetUrl
     } as any);
+  }
+
+  @Watch("busy")
+  private busyChanged(busy: boolean) {
+    this.$emit("busy", busy);
   }
 
   @On("error")

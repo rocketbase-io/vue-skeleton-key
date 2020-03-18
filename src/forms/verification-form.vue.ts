@@ -38,6 +38,11 @@ export default class VerificationForm extends Vue {
     await this.$auth.refreshInfo();
   }
 
+  @Watch("busy")
+  private busyChanged(busy: boolean) {
+    this.$emit("busy", busy);
+  }
+
   @On("error")
   private onError({ response }: any) {
     if (response?.data?.errors) this.errors = response.data.errors;
