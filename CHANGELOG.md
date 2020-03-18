@@ -1,3 +1,11 @@
+# [1.9.0-develop.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.8.2-develop.1...v1.9.0-develop.1) (2020-03-18)
+
+
+### Features
+
+* added hide-title feature ([cbe96d8](https://github.com/rocketbase-io/vue-skeleton-key/commit/cbe96d821c419eda6040f041222396c59f15ba03))
+* added invite event + added options to hide invite message ([6524240](https://github.com/rocketbase-io/vue-skeleton-key/commit/6524240da6ac64cc13c5e55dc9f904ce45951b5c))
+
 ## [1.8.2-develop.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.8.1...v1.8.2-develop.1) (2020-03-18)
 
 
