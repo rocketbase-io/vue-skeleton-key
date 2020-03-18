@@ -1,3 +1,10 @@
+# [1.9.0-develop.4](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.3...v1.9.0-develop.4) (2020-03-18)
+
+
+### Features
+
+* added busy event ([0e563cc](https://github.com/rocketbase-io/vue-skeleton-key/commit/0e563cca57478a424fee41bb7b97a1f42ec67434))
+
 # [1.9.0-develop.3](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.2...v1.9.0-develop.3) (2020-03-18)
 
 
