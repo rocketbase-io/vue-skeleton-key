@@ -1,3 +1,10 @@
+# [1.9.0-develop.3](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.2...v1.9.0-develop.3) (2020-03-18)
+
+
+### Bug Fixes
+
+* removed not working overwrites ([85895a4](https://github.com/rocketbase-io/vue-skeleton-key/commit/85895a472996fc9a2f2a5824de1c2e74f74adf52))
+
 # [1.9.0-develop.2](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.1...v1.9.0-develop.2) (2020-03-18)
 
 
