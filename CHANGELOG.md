@@ -1,3 +1,11 @@
+## [1.8.2-develop.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.8.1...v1.8.2-develop.1) (2020-03-18)
+
+
+### Bug Fixes
+
+* add classes to error, disable asset upload ([d8b33e1](https://github.com/rocketbase-io/vue-skeleton-key/commit/d8b33e12c443d67e7c2c9db922083c73379bad98))
+* disable form with invalid invite and added message ([c6bd197](https://github.com/rocketbase-io/vue-skeleton-key/commit/c6bd19735fb9f04233a811eb9106d4aee0fa304b))
+
 ## [1.8.1-develop.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.8.0...v1.8.1-develop.1) (2020-02-28)
 
 
