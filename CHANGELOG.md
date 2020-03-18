@@ -1,3 +1,10 @@
+# [1.9.0-develop.2](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.1...v1.9.0-develop.2) (2020-03-18)
+
+
+### Bug Fixes
+
+* correct hideInvite ([30b55fd](https://github.com/rocketbase-io/vue-skeleton-key/commit/30b55fd6b0f34ac1fd8f098aebfa4408e48d1142))
+
 # [1.9.0-develop.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.8.2-develop.1...v1.9.0-develop.1) (2020-03-18)
 
 
