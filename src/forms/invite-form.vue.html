@@ -8,7 +8,7 @@
   <template #header>
     <div v-if="validInvite">
       <h3 v-if="!hideTitle">{{tt("skeleton-key.invite.title", "Invite")}}</h3>
-      <div class="skeleton-form__invite" v-if="hideInvite && (invitor || message)">
+      <div class="skeleton-form__invite" v-if="!hideInvite && (invitor || message)">
         <h4 class="skeleton-form__invite__invitor" v-text="invitor" v-if="invitor" />
         <blockquote class="skeleton-form__invite__message" v-text="message" v-if="message" />
       </div>
