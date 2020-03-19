@@ -6,6 +6,7 @@ import render from "./skeleton-form.vue.html";
 @Component({ render })
 export default class SkeletonForm extends Vue {
   @Prop({ literal: {} }) public errors!: Record<string, string[]>;
+  @Prop({ literal: [] }) public messages!: string[];
   @Prop({ literal: {} }) public value!: Record<string, any>;
   @Prop({ literal: [] }) public required!: string[];
   @BProp() public busy!: boolean;
@@ -33,5 +34,9 @@ export default class SkeletonForm extends Vue {
 
   private get invalid() {
     return !this.valid;
+  }
+
+  private get hasMessages() {
+    return this.messages.length > 0;
   }
 }

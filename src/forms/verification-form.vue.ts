@@ -20,6 +20,7 @@ export default class VerificationForm extends Vue {
   @Data({ default: {} }) private errors!: { verification?: string[] };
   @SProp({ model: true }) public verification!: string | null;
   @Data({ sync: "verification" }) verificationLocal!: string | null;
+  @Data({ default: [] }) private messages!: string[];
   @BusyState() private busy!: boolean;
 
   private get client(): AuthClient {
@@ -44,6 +45,7 @@ export default class VerificationForm extends Vue {
     this.value = {} as any;
     this.errors = {};
     this.verificationLocal = this.verification;
+    this.messages = [];
   }
 
   @Watch("busy")
@@ -54,6 +56,7 @@ export default class VerificationForm extends Vue {
   @On("error")
   private onError({ response }: any) {
     if (response?.data?.errors) this.errors = response.data.errors;
+    if (response?.status) this.messages = [`${response.status} - ${response.data ?? response.statusText}`];
   }
 
   @On("success")

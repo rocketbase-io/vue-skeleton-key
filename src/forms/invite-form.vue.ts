@@ -23,6 +23,7 @@ export default class InviteForm extends Vue {
   @Data({ default: {} }) private errors!: any;
   @Data() private message!: string;
   @Data() private invitor!: string;
+  @Data({ default: [] }) private messages!: string[];
   @BusyState() private busy!: boolean;
 
   private get client(): AuthClient {
@@ -51,11 +52,13 @@ export default class InviteForm extends Vue {
     this.value = {} as any;
     this.errors = {};
     this.validInvite = false;
+    this.messages = [];
   }
 
   @On("error")
   private onError({ response }: any) {
     if (response?.data?.errors) this.errors = response.data.errors;
+    if (response?.status) this.messages = [`${response.status} - ${response.data ?? response.statusText}`];
   }
 
   @On("success")

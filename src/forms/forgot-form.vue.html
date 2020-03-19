@@ -1,9 +1,6 @@
-<skeleton-form :busy="busy" v-model="value" @submit="onSubmit" :required="['username']">
+<skeleton-form :busy="busy" v-model="value" @submit="onSubmit" :required="['username']" :messages="messages">
   <template #header>
     <h3 v-if="!hideTitle">{{tt("skeleton-key.forgot.title", "Forgot Password")}}</h3>
-    <template v-if="messages">
-      <skeleton-message v-for="(message, index) in messages" :text="message" :key="index" />
-    </template>
   </template>
   <template #default="{ value }">
     <skeleton-input :label="tt('skeleton-key.forgot.username', 'Username or Email')" v-model="value.username" />

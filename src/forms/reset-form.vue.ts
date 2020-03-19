@@ -16,15 +16,10 @@ import render from "./reset-form.vue.html";
 })
 export default class ResetForm extends Vue {
   @BProp() public hideTitle!: boolean;
-
-  @Data({ default: {} })
-  private value!: { password: string; password2: string };
-
-  @Data({ default: {} })
-  private errors!: any;
-
-  @BusyState()
-  private busy!: boolean;
+  @Data({ default: {} }) private value!: { password: string; password2: string };
+  @Data({ default: {} }) private errors!: any;
+  @Data({ default: [] }) private messages!: string[];
+  @BusyState() private busy!: boolean;
 
   @SProp({
     default(this: any) {
@@ -63,6 +58,7 @@ export default class ResetForm extends Vue {
   public clear() {
     this.value = {} as any;
     this.errors = {};
+    this.messages = [];
   }
 
   @Watch("busy")
@@ -73,6 +69,7 @@ export default class ResetForm extends Vue {
   @On("error")
   private onError({ response }: any) {
     if (response?.data?.errors) this.errors = response.data.errors;
+    if (response?.status) this.messages = [`${response.status} - ${response.data ?? response.statusText}`];
   }
 
   @On("success")

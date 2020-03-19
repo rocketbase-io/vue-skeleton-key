@@ -4,6 +4,7 @@
   :errors="errors"
   :required="['username', 'email', 'password', 'password2']"
   @submit="onSubmit"
+  :messages="messages"
 >
   <template #header>
     <h3 v-if="!hideTitle">{{tt("skeleton-key.register.title", "Register")}}</h3>

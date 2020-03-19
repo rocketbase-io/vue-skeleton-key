@@ -18,6 +18,7 @@ export default class RegisterForm extends Vue {
   @BProp() public hideTitle!: boolean;
   @Data({ default: {} }) private value!: RegistrationRequest & { password2: string };
   @Data({ default: {} }) private errors!: any;
+  @Data({ default: [] }) private messages!: string[];
   @BusyState() private busy!: boolean;
 
   private get client(): AuthClient {
@@ -40,6 +41,7 @@ export default class RegisterForm extends Vue {
   public clear() {
     this.value = {} as any;
     this.errors = {};
+    this.messages = [];
   }
 
   @Watch("busy")
@@ -50,6 +52,7 @@ export default class RegisterForm extends Vue {
   @On("error")
   private onError({ response }: any) {
     if (response?.data?.errors) this.errors = response.data.errors;
+    if (response?.status) this.messages = [`${response.status} - ${response.data ?? response.statusText}`];
   }
 
   @On("success")

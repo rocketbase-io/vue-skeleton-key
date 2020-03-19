@@ -1,9 +1,6 @@
-<skeleton-form :busy="busy" v-model="value" @submit="onSubmit" :required="['username', 'password']">
+<skeleton-form :busy="busy" v-model="value" @submit="onSubmit" :required="['username', 'password']" :messages="messages">
   <template #header>
     <h3 v-if="!hideTitle">{{tt("skeleton-key.login.title", "Login")}}</h3>
-    <template v-if="messages">
-      <skeleton-message v-for="(message, index) in messages" :text="message" :key="index" />
-    </template>
   </template>
   <template #default="{ value }">
     <skeleton-input :label="tt('skeleton-key.login.username', 'Username')" v-model="value.username" />

@@ -11,6 +11,22 @@
       v-if="localValue"
     />
   </div>
+  <div class="skeleton-form__errors">
+    <slot
+      name="error"
+      :errors="errors"
+      :error-array="errorArray"
+      :error-count="errorCount"
+      :messages="messages"
+      v-if="invalid || hasMessages"
+    >
+      <skeleton-message
+        v-for="(message, index) in messages"
+        :key="index"
+        :text="message"
+      />
+    </slot>
+  </div>
   <div class="skeleton-form__body">
     <slot
       :errors="errors"

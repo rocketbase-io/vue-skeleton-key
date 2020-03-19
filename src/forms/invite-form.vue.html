@@ -3,6 +3,7 @@
   v-model="value"
   :errors="errors"
   :required="['username', 'email', 'password', 'password2']"
+  :messages="messages"
   @submit="onSubmit"
 >
   <template #header>
@@ -15,7 +16,7 @@
     </div>
     <div v-else>
       <h3>{{tt("skeleton-key.invite.invalid.title", "Invalid Invite")}}</h3>
-      <p>{{tt("skeleton-key.invite.invalid.message", "Your invite has expired or is invalid. Please contact admin.")}}</p>
+      <p>{{tt("skeleton-key.invite.invalid.message", "Your invite has expired or is invalid. Please contact an administrator.")}}</p>
     </div>
   </template>
   <template #default="{ errors, value }" v-if="validInvite">
