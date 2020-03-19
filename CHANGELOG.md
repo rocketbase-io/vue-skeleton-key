@@ -1,3 +1,10 @@
+# [1.9.0-develop.6](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.5...v1.9.0-develop.6) (2020-03-19)
+
+
+### Bug Fixes
+
+* make forms resettable, make errors not emit success ([9f9f155](https://github.com/rocketbase-io/vue-skeleton-key/commit/9f9f15507dd67e9932cd4c2e36e5ffcb1ca9ab12))
+
 # [1.9.0-develop.5](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.4...v1.9.0-develop.5) (2020-03-19)
 
 
