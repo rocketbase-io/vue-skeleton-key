@@ -1,3 +1,10 @@
+# [1.9.0-develop.7](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.6...v1.9.0-develop.7) (2020-03-19)
+
+
+### Bug Fixes
+
+* add error messages to form components ([3d68105](https://github.com/rocketbase-io/vue-skeleton-key/commit/3d6810572c11cf749684723056d8eb47565457db))
+
 # [1.9.0-develop.6](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.5...v1.9.0-develop.6) (2020-03-19)
 
 
