@@ -1,3 +1,10 @@
+# [1.9.0-develop.5](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.4...v1.9.0-develop.5) (2020-03-19)
+
+
+### Bug Fixes
+
+* should validate in correct way ([06b12f6](https://github.com/rocketbase-io/vue-skeleton-key/commit/06b12f666f56af93a7df3108cd4fa768c83e78e4))
+
 # [1.9.0-develop.4](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.3...v1.9.0-develop.4) (2020-03-18)
 
 
