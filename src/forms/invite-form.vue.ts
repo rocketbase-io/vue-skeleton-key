@@ -34,8 +34,8 @@ export default class InviteForm extends Vue {
   }
 
   @Blocking()
-  @Emit("success")
   @EmitError("error")
+  @Emit("success")
   private async onSubmit() {
     const { value } = this;
     await this.client.transformInviteToUser(value);
@@ -47,9 +47,20 @@ export default class InviteForm extends Vue {
     this.$emit("busy", busy);
   }
 
+  public clear() {
+    this.value = {} as any;
+    this.errors = {};
+    this.validInvite = false;
+  }
+
   @On("error")
   private onError({ response }: any) {
     if (response?.data?.errors) this.errors = response.data.errors;
+  }
+
+  @On("success")
+  private onSuccess() {
+    this.clear();
   }
 
   private errorsFor({ valid, errorCodes }: ValidationResponse) {

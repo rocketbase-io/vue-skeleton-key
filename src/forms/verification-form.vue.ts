@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { Component, Data, Watch, SProp, BusyState, Blocking, On, BProp } from "@rocketbase/vue-extra-decorators";
+import { Component, Data, Watch, SProp, BusyState, Blocking, On, BProp, EmitError, Emit } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput } from "src/components";
 import { AuthClient, ValidationResponse } from "@rocketbase/skeleton-key";
 import Vue from "vue";
@@ -31,11 +31,19 @@ export default class VerificationForm extends Vue {
   }
 
   @Blocking()
+  @EmitError("error")
+  @Emit("success")
   private async onSubmit() {
     const { verification } = this.value;
     this.$auth.jwtBundle = await this.client.verify(verification!);
     this.errors = {};
     await this.$auth.refreshInfo();
+  }
+
+  public clear() {
+    this.value = {} as any;
+    this.errors = {};
+    this.verificationLocal = this.verification;
   }
 
   @Watch("busy")
@@ -46,6 +54,11 @@ export default class VerificationForm extends Vue {
   @On("error")
   private onError({ response }: any) {
     if (response?.data?.errors) this.errors = response.data.errors;
+  }
+
+  @On("success")
+  private onSuccess() {
+    this.clear();
   }
 
   private errorFor({ errorCodes, valid }: ValidationResponse) {

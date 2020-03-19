@@ -60,6 +60,11 @@ export default class ResetForm extends Vue {
     this.errors = {};
   }
 
+  public clear() {
+    this.value = {} as any;
+    this.errors = {};
+  }
+
   @Watch("busy")
   private busyChanged(busy: boolean) {
     this.$emit("busy", busy);
@@ -68,6 +73,11 @@ export default class ResetForm extends Vue {
   @On("error")
   private onError({ response }: any) {
     if (response?.data?.errors) this.errors = response.data.errors;
+  }
+
+  @On("success")
+  private onSuccess() {
+    this.clear();
   }
 
   private errorsFor({ valid, errorCodes }: ValidationResponse) {

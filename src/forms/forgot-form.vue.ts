@@ -33,8 +33,8 @@ export default class ForgotForm extends Vue {
   }
 
   @Blocking()
-  @Emit("success")
   @EmitError("error")
+  @Emit("success")
   private async onSubmit() {
     const { value, passwordResetUrl } = this;
     const verificationUrl = passwordResetUrl;
@@ -55,5 +55,15 @@ export default class ForgotForm extends Vue {
   private onError({ response }: any) {
     if (response?.data?.errors) this.messages = Object.values(response.data.errors).flat();
     else this.messages = [this.tt("skeleton-key.forgot.invalid", "Invalid Username or Email")];
+  }
+
+  @On("success")
+  private onSuccess() {
+    this.clear();
+  }
+
+  public clear() {
+    this.value = {} as any;
+    this.messages = [];
   }
 }

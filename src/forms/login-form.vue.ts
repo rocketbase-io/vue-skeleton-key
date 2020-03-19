@@ -24,11 +24,16 @@ export default class LoginForm extends Vue {
   }
 
   @Blocking()
-  @Emit("success")
   @EmitError("error")
+  @Emit("success")
   private async onSubmit() {
     const { value } = this;
     await this.$auth.login(value.username, value.password);
+  }
+
+  public clear() {
+    this.value = {} as any;
+    this.messages = [];
   }
 
   @Watch("busy")
@@ -40,5 +45,10 @@ export default class LoginForm extends Vue {
   private onError({ response }: any) {
     if (response?.data?.errors) this.messages = Object.values(response.data.errors).flat();
     else this.messages = [this.tt("skeleton-key.login.invalid", "Invalid Username or Password")];
+  }
+
+  @On("success")
+  private onSuccess() {
+    this.clear();
   }
 }

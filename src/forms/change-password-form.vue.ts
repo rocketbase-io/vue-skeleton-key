@@ -29,12 +29,17 @@ export default class ChangePasswordForm extends Vue {
   }
 
   @Blocking()
-  @Emit("success")
   @EmitError("error")
+  @Emit("success")
   private async onSubmit() {
     const { value } = this;
     const { newPassword, currentPassword } = value;
     await this.client.changePassword({ currentPassword, newPassword }, this.$auth.jwtBundle!.token!);
+    this.errors = {};
+  }
+
+  public clear() {
+    this.value = {} as any;
     this.errors = {};
   }
 
@@ -46,6 +51,11 @@ export default class ChangePasswordForm extends Vue {
   @On("error")
   private onError({ response }: any) {
     if (response?.data?.errors) this.errors = response.data.errors;
+  }
+
+  @On("success")
+  private onSuccess() {
+    this.clear();
   }
 
   private errorsFor({ valid, errorCodes }: ValidationResponse) {
