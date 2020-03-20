@@ -1,3 +1,10 @@
+# [1.9.0-develop.8](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.7...v1.9.0-develop.8) (2020-03-20)
+
+
+### Bug Fixes
+
+* inviteId now with default value uri query-param ([24aab6c](https://github.com/rocketbase-io/vue-skeleton-key/commit/24aab6cb84f13e62b690403ecd29049b9d9a6c78))
+
 ## [1.8.2](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.8.1...v1.8.2) (2020-03-18)
 
 
