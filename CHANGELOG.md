@@ -1,3 +1,21 @@
+# [1.9.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.8.2...v1.9.0) (2020-03-20)
+
+
+### Bug Fixes
+
+* add error messages to form components ([3d68105](https://github.com/rocketbase-io/vue-skeleton-key/commit/3d6810572c11cf749684723056d8eb47565457db))
+* correct hideInvite ([30b55fd](https://github.com/rocketbase-io/vue-skeleton-key/commit/30b55fd6b0f34ac1fd8f098aebfa4408e48d1142))
+* make forms resettable, make errors not emit success ([9f9f155](https://github.com/rocketbase-io/vue-skeleton-key/commit/9f9f15507dd67e9932cd4c2e36e5ffcb1ca9ab12))
+* removed not working overwrites ([85895a4](https://github.com/rocketbase-io/vue-skeleton-key/commit/85895a472996fc9a2f2a5824de1c2e74f74adf52))
+* should validate in correct way ([06b12f6](https://github.com/rocketbase-io/vue-skeleton-key/commit/06b12f666f56af93a7df3108cd4fa768c83e78e4))
+
+
+### Features
+
+* added busy event ([0e563cc](https://github.com/rocketbase-io/vue-skeleton-key/commit/0e563cca57478a424fee41bb7b97a1f42ec67434))
+* added hide-title feature ([cbe96d8](https://github.com/rocketbase-io/vue-skeleton-key/commit/cbe96d821c419eda6040f041222396c59f15ba03))
+* added invite event + added options to hide invite message ([6524240](https://github.com/rocketbase-io/vue-skeleton-key/commit/6524240da6ac64cc13c5e55dc9f904ce45951b5c))
+
 # [1.9.0-develop.13](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.12...v1.9.0-develop.13) (2020-03-22)
 
 
