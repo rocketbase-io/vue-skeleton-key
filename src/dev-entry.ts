@@ -17,7 +17,7 @@ new Vue({
   template: `
     <div>
       <login-form />
-      <register-form />
+      <register-form hide-title />
       <verification-form verification="bad-token" />
       <invite-form />
     </div>

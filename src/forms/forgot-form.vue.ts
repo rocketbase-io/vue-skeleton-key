@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { Blocking, BusyState, Component, Data, Emit, EmitError, On, SProp } from "@rocketbase/vue-extra-decorators";
+import { Blocking, BProp, BusyState, Component, Data, Emit, EmitError, On, SProp, Watch } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
 import Vue from "vue";
 import render from "./forgot-form.vue.html";
@@ -14,6 +14,8 @@ import render from "./forgot-form.vue.html";
   render
 })
 export default class ForgotForm extends Vue {
+  @BProp() public hideTitle!: boolean;
+
   @Data({ default: {} })
   private value!: { username: string };
 
@@ -31,8 +33,8 @@ export default class ForgotForm extends Vue {
   }
 
   @Blocking()
-  @Emit("success")
   @EmitError("error")
+  @Emit("success")
   private async onSubmit() {
     const { value, passwordResetUrl } = this;
     const verificationUrl = passwordResetUrl;
@@ -44,9 +46,24 @@ export default class ForgotForm extends Vue {
     } as any);
   }
 
+  @Watch("busy")
+  private busyChanged(busy: boolean) {
+    this.$emit("busy", busy);
+  }
+
   @On("error")
   private onError({ response }: any) {
     if (response?.data?.errors) this.messages = Object.values(response.data.errors).flat();
     else this.messages = [this.tt("skeleton-key.forgot.invalid", "Invalid Username or Email")];
+  }
+
+  @On("success")
+  private onSuccess() {
+    this.clear();
+  }
+
+  public clear() {
+    this.value = {} as any;
+    this.messages = [];
   }
 }

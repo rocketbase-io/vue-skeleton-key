@@ -16,11 +16,14 @@ import render from "./invite-form.vue.html";
 })
 export default class InviteForm extends Vue {
   @SProp() public inviteId!: string;
-  @BProp({ default: false }) public validInvite!: boolean;
+  @BProp() public hideTitle!: boolean;
+  @BProp() public hideInvite!: boolean;
+  @Data({ default: false }) private validInvite!: boolean;
   @Data({ default: {} }) private value!: ConfirmInviteRequest & { password2: string };
   @Data({ default: {} }) private errors!: any;
   @Data() private message!: string;
   @Data() private invitor!: string;
+  @Data({ default: [] }) private messages!: string[];
   @BusyState() private busy!: boolean;
 
   private get client(): AuthClient {
@@ -32,17 +35,35 @@ export default class InviteForm extends Vue {
   }
 
   @Blocking()
-  @Emit("success")
   @EmitError("error")
+  @Emit("success")
   private async onSubmit() {
     const { value } = this;
     await this.client.transformInviteToUser(value);
     this.errors = {};
   }
 
+  @Watch("busy")
+  private busyChanged(busy: boolean) {
+    this.$emit("busy", busy);
+  }
+
+  public clear() {
+    this.value = {} as any;
+    this.errors = {};
+    this.validInvite = false;
+    this.messages = [];
+  }
+
   @On("error")
   private onError({ response }: any) {
     if (response?.data?.errors) this.errors = response.data.errors;
+    if (response?.status) this.messages = [`${response.status} - ${response.data ?? response.statusText}`];
+  }
+
+  @On("success")
+  private onSuccess() {
+    this.clear();
   }
 
   private errorsFor({ valid, errorCodes }: ValidationResponse) {
@@ -68,13 +89,16 @@ export default class InviteForm extends Vue {
       return;
     }
     try {
-      const { email, firstName, lastName, invitor, message } = await this.client.verifyInvite(inviteId);
+      const appInviteRead = await this.client.verifyInvite(inviteId);
+      const { email, firstName, lastName, invitor, message } = appInviteRead;
       Object.entries({ email, firstName, lastName }).forEach(([key, value]) => {
         if (!value) return;
         this.value = { ...this.value, [key]: value };
       });
       this.invitor = invitor;
       this.message = message!;
+
+      this.$emit("invite", appInviteRead);
       this.validInvite = true;
     } catch (e) {
       this.validInvite = false;

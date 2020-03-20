@@ -1,6 +1,6 @@
-<skeleton-form :busy="busy" v-model="value" :errors="errors" :required="['verification']" @submit="onSubmit">
+<skeleton-form :busy="busy" v-model="value" :errors="errors" :required="['verification']" @submit="onSubmit" :messages="messages">
   <template #header>
-    <h3>{{tt("skeleton-key.verification.title", "Verification")}}</h3>
+    <h3 v-if="!hideTitle">{{tt("skeleton-key.verification.title", "Verification")}}</h3>
   </template>
   <template #default="{ errors }">
     <skeleton-input v-model="verificationLocal" :messages="errors.verification" :label="tt('skeleton-key.verification.token', 'Token')" />
