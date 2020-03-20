@@ -1,3 +1,10 @@
+# [1.9.0-develop.12](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.11...v1.9.0-develop.12) (2020-03-20)
+
+
+### Bug Fixes
+
+* resolve circular dependency in skeleton-form ([178168e](https://github.com/rocketbase-io/vue-skeleton-key/commit/178168ec1992b1d1e47f665bfe6e5bf91e4836a4))
+
 # [1.9.0-develop.11](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.10...v1.9.0-develop.11) (2020-03-20)
 
 
