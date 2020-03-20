@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { ValidationResponse } from "@rocketbase/skeleton-key";
 import { BProp, BusyState, Component, Data, On, Vue, Watch } from "@rocketbase/vue-extra-decorators";
 
