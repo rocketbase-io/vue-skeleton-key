@@ -1,12 +1,18 @@
 <skeleton-form :busy="busy" v-model="value" @submit="onSubmit" :required="['password', 'password2']" :messages="messages">
   <template #header>
-    <h3 v-if="!hideTitle">{{tt("skeleton-key.reset.title", "Reset Password")}}</h3>
+    <div v-if="validVerification">
+      <h3 v-if="!hideTitle">{{tt("skeleton-key.reset.title", "Reset Password")}}</h3>
+    </div>
+    <div v-else>
+      <h3>{{tt("skeleton-key.reset.invalid.title", "Invalid Reset")}}</h3>
+      <p>{{tt("skeleton-key.reset.invalid.message", "Your reset token has expired or is invalid. Please try a reset again.")}}</p>
+    </div>
   </template>
-  <template #default="{ value }">
+  <template #default="{ value }" v-if="validVerification">
     <skeleton-input type="password" :label="tt('skeleton-key.reset.password', 'Password')" v-model="value.password" />
     <skeleton-input type="password" :label="tt('skeleton-key.reset.password2', ' Repeat Password')" v-model="value.password2" />
   </template>
-  <template #footer="{ invalid }">
+  <template #footer="{ invalid }" v-if="validVerification">
     <skeleton-button :text="tt('skeleton-key.reset.submit', 'Reset')" primary submit :disabled="invalid" />
   </template>
 </skeleton-form>

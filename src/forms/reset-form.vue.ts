@@ -16,6 +16,7 @@ import render from "./reset-form.vue.html";
 })
 export default class ResetForm extends Vue {
   @BProp() public hideTitle!: boolean;
+  @Data({ default: false }) private validVerification!: boolean;
   @Data({ default: {} }) private value!: { password: string; password2: string };
   @Data({ default: {} }) private errors!: any;
   @Data({ default: [] }) private messages!: string[];
@@ -40,6 +41,16 @@ export default class ResetForm extends Vue {
 
   private get client() {
     return this.$auth.client;
+  }
+
+  @Watch({ prop: "verification", immediate: true })
+  private async onVerificationChange(verification: string) {
+    try {
+      const validationResponse = await this.client.validateToken(verification);
+      this.validVerification = validationResponse.valid;
+    } catch (e) {
+      this.validVerification = false;
+    }
   }
 
   @Blocking()
