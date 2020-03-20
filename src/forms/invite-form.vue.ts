@@ -2,6 +2,7 @@
 import { Blocking, BProp, Component, Data, Debounce, Emit, EmitError, mixins, SProp, Watch } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonValidated } from "src/components";
 import { ConfirmInviteRequest } from "@rocketbase/skeleton-key";
+import { queryParam } from "src/query-param";
 import render from "./invite-form.vue.html";
 
 export interface InviteFormData extends ConfirmInviteRequest {
@@ -22,17 +23,7 @@ export default class InviteForm extends mixins<SkeletonValidated<InviteFormData>
   @Data() private message!: string;
   @Data() private invitor!: string;
 
-  @SProp({
-    default(this: any) {
-      const query = Object.fromEntries(
-        location.search
-          .replace("?", "")
-          .split("&")
-          .map(it => it.split("=").map(decodeURIComponent))
-      );
-      return query.inviteId;
-    }
-  })
+  @SProp({ default: () => queryParam("inviteId") || "" })
   public inviteId!: string;
 
   @Blocking()

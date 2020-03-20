@@ -1,6 +1,7 @@
 /* istanbul ignore file */
 import { Blocking, Component, Data, Debounce, Emit, EmitError, mixins, SProp, Watch } from "@rocketbase/vue-extra-decorators";
 import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonValidated } from "src/components";
+import { queryParam } from "src/query-param";
 import render from "./reset-form.vue.html";
 
 export interface ResetFormData {
@@ -19,17 +20,7 @@ export interface ResetFormData {
 export default class ResetForm extends mixins<SkeletonValidated<ResetFormData>>(SkeletonValidated) {
   @Data({ default: false }) private validVerification!: boolean;
 
-  @SProp({
-    default(this: any) {
-      const query = Object.fromEntries(
-        location.search
-          .replace("?", "")
-          .split("&")
-          .map(it => it.split("=").map(decodeURIComponent))
-      );
-      return query.verification;
-    }
-  })
+  @SProp({ default: () => queryParam("verification") || "" })
   public verification!: string;
 
   @Watch({ prop: "verification", immediate: true })
