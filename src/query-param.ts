@@ -4,6 +4,7 @@ export function queryParams(): Record<string, string> {
       .replace("?", "")
       .split("&")
       .map(it => it.split("=").map(decodeURIComponent))
+      .filter(([key]) => key)
   );
 }
 

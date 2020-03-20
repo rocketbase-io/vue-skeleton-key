@@ -10,7 +10,7 @@ const moduleNameMapper = fromPairs(entries(paths).map(entryMapper));
 module.exports = {
   preset: "@vue/cli-plugin-unit-jest/presets/typescript",
   collectCoverage: true,
-  collectCoverageFrom: ["src/**/*.ts", "!**/node_modules/**", "!**.html"],
+  collectCoverageFrom: ["src/**/*.ts", "!**/node_modules/**", "!**.html", "!**/components/**"],
   coverageReporters: ["lcovonly"],
   moduleNameMapper: {
     ...moduleNameMapper
