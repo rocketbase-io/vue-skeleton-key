@@ -15,7 +15,6 @@ import render from "./invite-form.vue.html";
   render
 })
 export default class InviteForm extends Vue {
-  @SProp() public inviteId!: string;
   @BProp() public hideTitle!: boolean;
   @BProp() public hideInvite!: boolean;
   @Data({ default: false }) private validInvite!: boolean;
@@ -25,6 +24,19 @@ export default class InviteForm extends Vue {
   @Data() private invitor!: string;
   @Data({ default: [] }) private messages!: string[];
   @BusyState() private busy!: boolean;
+
+  @SProp({
+    default(this: any) {
+      const query = Object.fromEntries(
+        location.search
+          .replace("?", "")
+          .split("&")
+          .map(it => it.split("=").map(decodeURIComponent))
+      );
+      return query.inviteId;
+    }
+  })
+  public inviteId!: string;
 
   private get client(): AuthClient {
     return this.$auth.client;
