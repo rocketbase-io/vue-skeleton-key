@@ -1,9 +1,16 @@
-<skeleton-form :busy="busy" v-model="value" @submit="onSubmit" :required="['username']" :messages="messages">
+<skeleton-form
+  :busy="busy"
+  v-model="value"
+  :required="['username']"
+  :messages="messages"
+  :errors="errors"
+  @submit="onSubmit"
+>
   <template #header>
     <h3 v-if="!hideTitle">{{tt("skeleton-key.forgot.title", "Forgot Password")}}</h3>
   </template>
-  <template #default="{ value }">
-    <skeleton-input :label="tt('skeleton-key.forgot.username', 'Username or Email')" v-model="value.username" />
+  <template #default="{ value, errors }">
+    <skeleton-input :label="tt('skeleton-key.forgot.username', 'Username or Email')" v-model="value.username" :messages="errors.username || errors.email" />
   </template>
   <template #footer="{ invalid }">
     <skeleton-button :text="tt('skeleton-key.forgot.submit', 'Submit')" primary submit :disabled="invalid" />

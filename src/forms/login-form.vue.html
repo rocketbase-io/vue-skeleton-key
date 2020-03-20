@@ -1,10 +1,17 @@
-<skeleton-form :busy="busy" v-model="value" @submit="onSubmit" :required="['username', 'password']" :messages="messages">
+<skeleton-form
+  :busy="busy"
+  v-model="value"
+  :required="['username', 'password']"
+  :messages="messages"
+  :errors="errors"
+  @submit="onSubmit"
+>
   <template #header>
     <h3 v-if="!hideTitle">{{tt("skeleton-key.login.title", "Login")}}</h3>
   </template>
-  <template #default="{ value }">
-    <skeleton-input :label="tt('skeleton-key.login.username', 'Username')" v-model="value.username" />
-    <skeleton-input type="password" :label="tt('skeleton-key.login.password', 'Password')" v-model="value.password" />
+  <template #default="{ value, errors }">
+    <skeleton-input :label="tt('skeleton-key.login.username', 'Username')" v-model="value.username" :messages="errors.username || errors.email" />
+    <skeleton-input type="password" :label="tt('skeleton-key.login.password', 'Password')" v-model="value.password" :messages="errors.password" />
   </template>
   <template #footer="{ invalid }">
     <skeleton-button :text="tt('skeleton-key.login.submit', 'Login')" primary submit :disabled="invalid" />
