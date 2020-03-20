@@ -1,3 +1,10 @@
+# [1.9.0-develop.9](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.8...v1.9.0-develop.9) (2020-03-20)
+
+
+### Bug Fixes
+
+* added missing verification check ([ae60b8e](https://github.com/rocketbase-io/vue-skeleton-key/commit/ae60b8ede340fd67b9f8a36d869fd8d168ddd889))
+
 # [1.9.0-develop.8](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.7...v1.9.0-develop.8) (2020-03-20)
 
 
