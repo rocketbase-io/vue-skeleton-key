@@ -1,3 +1,10 @@
+# [1.9.0-develop.11](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.10...v1.9.0-develop.11) (2020-03-20)
+
+
+### Bug Fixes
+
+* streamline form validation ([ca25a3e](https://github.com/rocketbase-io/vue-skeleton-key/commit/ca25a3ef939df633bc91beb034dddfd9f9ce04ea))
+
 # [1.9.0-develop.10](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.9...v1.9.0-develop.10) (2020-03-20)
 
 
