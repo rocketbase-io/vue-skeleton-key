@@ -1,3 +1,10 @@
+# [1.9.0-develop.10](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.9...v1.9.0-develop.10) (2020-03-20)
+
+
+### Bug Fixes
+
+* added missing message component ([51a2024](https://github.com/rocketbase-io/vue-skeleton-key/commit/51a2024090994c31e1d1b9ed8fef0a25fc6e4235))
+
 # [1.9.0-develop.9](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.8...v1.9.0-develop.9) (2020-03-20)
 
 
