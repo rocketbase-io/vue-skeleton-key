@@ -17,19 +17,19 @@ export interface ForgotFormData {
 })
 export default class ForgotForm extends mixins<SkeletonValidated<ForgotFormData>>(SkeletonValidated) {
   @SProp({ default: () => `${location.origin + location.pathname}/verification` })
-  public passwordResetUrl!: string;
+  public resetPasswordUrl!: string;
 
   @Blocking()
   @EmitError("error")
   @Emit("success")
   private async onSubmit() {
-    const { value, passwordResetUrl } = this;
-    const verificationUrl = passwordResetUrl;
+    const { value, resetPasswordUrl } = this;
+    const verificationUrl = resetPasswordUrl;
     const { username } = value;
     await this.$auth.client.forgotPassword({
       [username.includes("@") ? "email" : "username"]: username,
       verificationUrl,
-      passwordResetUrl
+      resetPasswordUrl
     } as any);
   }
 }
