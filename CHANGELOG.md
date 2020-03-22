@@ -1,3 +1,10 @@
+# [1.9.0-develop.13](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.12...v1.9.0-develop.13) (2020-03-22)
+
+
+### Bug Fixes
+
+* corrected property ([cfafce8](https://github.com/rocketbase-io/vue-skeleton-key/commit/cfafce8e6b5413f0bd0f920ac47b3dd9e4665893))
+
 # [1.9.0-develop.12](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.11...v1.9.0-develop.12) (2020-03-20)
 
 
