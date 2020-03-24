@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 import Vue from "vue";
-import { InviteForm, LoginForm, RegisterForm, VerificationForm, VueSkeletonKey } from "src/main";
+import { InviteForm, LoginForm, RegisterForm, VerificationForm, ForgotForm, VueSkeletonKey } from "src/main";
 
 Vue.use(VueSkeletonKey, {
   storageKey: "io.rocketbase.vue-skeleton-key",
@@ -12,7 +12,8 @@ new Vue({
     LoginForm,
     RegisterForm,
     VerificationForm,
-    InviteForm
+    InviteForm,
+    ForgotForm
   },
   template: `
     <div>
@@ -20,6 +21,7 @@ new Vue({
       <register-form hide-title />
       <verification-form verification="bad-token" />
       <invite-form />
+      <forgot-form />
     </div>
   `
 }).$mount("#app");
