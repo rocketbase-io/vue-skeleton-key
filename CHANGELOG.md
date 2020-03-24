@@ -1,3 +1,10 @@
+# [1.9.0-develop.14](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.13...v1.9.0-develop.14) (2020-03-24)
+
+
+### Bug Fixes
+
+* allow resubmit after change ([4bc7d4c](https://github.com/rocketbase-io/vue-skeleton-key/commit/4bc7d4c48e8423afa844db08418e3ac8af2d90cb))
+
 # [1.9.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.8.2...v1.9.0) (2020-03-20)
 
 
