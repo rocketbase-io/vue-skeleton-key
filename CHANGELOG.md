@@ -1,3 +1,10 @@
+# [1.9.0-develop.15](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.14...v1.9.0-develop.15) (2020-03-25)
+
+
+### Bug Fixes
+
+* mixin used same instance for all components ([f61c8a5](https://github.com/rocketbase-io/vue-skeleton-key/commit/f61c8a51bc3f437c6e083d92d708a2b438f46416))
+
 # [1.9.0-develop.14](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.13...v1.9.0-develop.14) (2020-03-24)
 
 
