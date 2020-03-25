@@ -1,17 +1,3 @@
-# [1.9.0-develop.15](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.14...v1.9.0-develop.15) (2020-03-25)
-
-
-### Bug Fixes
-
-* mixin used same instance for all components ([f61c8a5](https://github.com/rocketbase-io/vue-skeleton-key/commit/f61c8a51bc3f437c6e083d92d708a2b438f46416))
-
-# [1.9.0-develop.14](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.13...v1.9.0-develop.14) (2020-03-24)
-
-
-### Bug Fixes
-
-* allow resubmit after change ([4bc7d4c](https://github.com/rocketbase-io/vue-skeleton-key/commit/4bc7d4c48e8423afa844db08418e3ac8af2d90cb))
-
 # [1.9.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.8.2...v1.9.0) (2020-03-20)
 
 
@@ -29,48 +15,6 @@
 * added busy event ([0e563cc](https://github.com/rocketbase-io/vue-skeleton-key/commit/0e563cca57478a424fee41bb7b97a1f42ec67434))
 * added hide-title feature ([cbe96d8](https://github.com/rocketbase-io/vue-skeleton-key/commit/cbe96d821c419eda6040f041222396c59f15ba03))
 * added invite event + added options to hide invite message ([6524240](https://github.com/rocketbase-io/vue-skeleton-key/commit/6524240da6ac64cc13c5e55dc9f904ce45951b5c))
-
-# [1.9.0-develop.13](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.12...v1.9.0-develop.13) (2020-03-22)
-
-
-### Bug Fixes
-
-* corrected property ([cfafce8](https://github.com/rocketbase-io/vue-skeleton-key/commit/cfafce8e6b5413f0bd0f920ac47b3dd9e4665893))
-
-# [1.9.0-develop.12](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.11...v1.9.0-develop.12) (2020-03-20)
-
-
-### Bug Fixes
-
-* resolve circular dependency in skeleton-form ([178168e](https://github.com/rocketbase-io/vue-skeleton-key/commit/178168ec1992b1d1e47f665bfe6e5bf91e4836a4))
-
-# [1.9.0-develop.11](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.10...v1.9.0-develop.11) (2020-03-20)
-
-
-### Bug Fixes
-
-* streamline form validation ([ca25a3e](https://github.com/rocketbase-io/vue-skeleton-key/commit/ca25a3ef939df633bc91beb034dddfd9f9ce04ea))
-
-# [1.9.0-develop.10](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.9...v1.9.0-develop.10) (2020-03-20)
-
-
-### Bug Fixes
-
-* added missing message component ([51a2024](https://github.com/rocketbase-io/vue-skeleton-key/commit/51a2024090994c31e1d1b9ed8fef0a25fc6e4235))
-
-# [1.9.0-develop.9](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.8...v1.9.0-develop.9) (2020-03-20)
-
-
-### Bug Fixes
-
-* added missing verification check ([ae60b8e](https://github.com/rocketbase-io/vue-skeleton-key/commit/ae60b8ede340fd67b9f8a36d869fd8d168ddd889))
-
-# [1.9.0-develop.8](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0-develop.7...v1.9.0-develop.8) (2020-03-20)
-
-
-### Bug Fixes
-
-* inviteId now with default value uri query-param ([24aab6c](https://github.com/rocketbase-io/vue-skeleton-key/commit/24aab6cb84f13e62b690403ecd29049b9d9a6c78))
 
 ## [1.8.2](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.8.1...v1.8.2) (2020-03-18)
 
