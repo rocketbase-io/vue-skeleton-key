@@ -1,11 +1,4 @@
 {
-  "branches": [{
-    "name": "master"
-  },{
-    "name": "develop",
-    "channel": "develop",
-    "prerelease": "develop"
-  }],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/changelog",
