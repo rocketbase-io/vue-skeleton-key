@@ -1,10 +1,10 @@
 <skeleton-form
   :busy="busy"
   v-model="value"
-  :errors="errors"
   :required="['username', 'email', 'password', 'password2']"
-  @submit="onSubmit"
   :messages="messages"
+  :errors="errors"
+  @submit="onSubmit"
 >
   <template #header>
     <h3 v-if="!hideTitle">{{tt("skeleton-key.register.title", "Register")}}</h3>

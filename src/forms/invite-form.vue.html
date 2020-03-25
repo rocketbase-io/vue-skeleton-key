@@ -1,9 +1,9 @@
 <skeleton-form
   :busy="busy"
   v-model="value"
-  :errors="errors"
   :required="['username', 'email', 'password', 'password2']"
   :messages="messages"
+  :errors="errors"
   @submit="onSubmit"
 >
   <template #header>

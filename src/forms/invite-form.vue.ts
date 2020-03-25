@@ -1,38 +1,30 @@
 /* istanbul ignore file */
-import { Blocking, BProp, BusyState, Component, Data, Debounce, Emit, EmitError, On, SProp, Watch } from "@rocketbase/vue-extra-decorators";
-import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
-import { AuthClient, ConfirmInviteRequest, ValidationResponse } from "@rocketbase/skeleton-key";
-import Vue from "vue";
+import { Blocking, BProp, Component, Data, Debounce, Emit, EmitError, mixins, SProp, Watch } from "@rocketbase/vue-extra-decorators";
+import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonValidated } from "src/components";
+import { ConfirmInviteRequest } from "@rocketbase/skeleton-key";
+import { queryParam } from "src/query-param";
 import render from "./invite-form.vue.html";
+
+export interface InviteFormData extends ConfirmInviteRequest {
+  password2: string;
+}
 
 @Component({
   components: {
     SkeletonForm,
     SkeletonButton,
-    SkeletonInput,
-    SkeletonMessage
+    SkeletonInput
   },
   render
 })
-export default class InviteForm extends Vue {
-  @SProp() public inviteId!: string;
-  @BProp() public hideTitle!: boolean;
+export default class InviteForm extends mixins<SkeletonValidated<InviteFormData>>(SkeletonValidated) {
   @BProp() public hideInvite!: boolean;
   @Data({ default: false }) private validInvite!: boolean;
-  @Data({ default: {} }) private value!: ConfirmInviteRequest & { password2: string };
-  @Data({ default: {} }) private errors!: any;
   @Data() private message!: string;
   @Data() private invitor!: string;
-  @Data({ default: [] }) private messages!: string[];
-  @BusyState() private busy!: boolean;
 
-  private get client(): AuthClient {
-    return this.$auth.client;
-  }
-
-  private tt(this: any, key: string, fallback: string) {
-    return this.$t ? this.$t(key) || fallback : fallback;
-  }
+  @SProp({ default: () => queryParam("inviteId") || "" })
+  public inviteId!: string;
 
   @Blocking()
   @EmitError("error")
@@ -40,12 +32,6 @@ export default class InviteForm extends Vue {
   private async onSubmit() {
     const { value } = this;
     await this.client.transformInviteToUser(value);
-    this.errors = {};
-  }
-
-  @Watch("busy")
-  private busyChanged(busy: boolean) {
-    this.$emit("busy", busy);
   }
 
   public clear() {
@@ -53,32 +39,6 @@ export default class InviteForm extends Vue {
     this.errors = {};
     this.validInvite = false;
     this.messages = [];
-  }
-
-  @On("error")
-  private onError({ response }: any) {
-    if (response?.data?.errors) this.errors = response.data.errors;
-    if (response?.status) this.messages = [`${response.status} - ${response.data ?? response.statusText}`];
-  }
-
-  @On("success")
-  private onSuccess() {
-    this.clear();
-  }
-
-  private errorsFor({ valid, errorCodes }: ValidationResponse) {
-    if (errorCodes) {
-      if (Array.isArray(errorCodes)) return errorCodes;
-      else return Object.values(errorCodes);
-    } else if (!valid) return [this.tt("skeleton-key.invite.invalid.username", "Invalid Username")];
-    else return undefined;
-  }
-
-  private replaceErrors(field: string, response: ValidationResponse) {
-    this.errors = {
-      ...this.errors,
-      [field]: this.errorsFor(response)
-    };
   }
 
   @Watch({ prop: "inviteId", immediate: true })
@@ -97,7 +57,6 @@ export default class InviteForm extends Vue {
       });
       this.invitor = invitor;
       this.message = message!;
-
       this.$emit("invite", appInviteRead);
       this.validInvite = true;
     } catch (e) {
@@ -109,14 +68,14 @@ export default class InviteForm extends Vue {
   @Debounce(500)
   private async onUsernameChange() {
     const val = this.value.username;
-    if (val) this.replaceErrors("username", await this.client.validateUsername(val));
+    if (val) this.replaceErrors("invite", "username", "Invalid Username", await this.client.validateUsername(val));
   }
 
   @Watch("value.password")
   @Debounce(500)
   private async onPasswordChange() {
     const val = this.value.password;
-    if (val) this.replaceErrors("password", await this.client.validatePassword(val));
+    if (val) this.replaceErrors("invite", "password", "Invalid Password", await this.client.validatePassword(val));
   }
 
   @Watch("value.password2")
@@ -133,6 +92,6 @@ export default class InviteForm extends Vue {
   @Debounce(500)
   private async onEmailChange() {
     const val = this.value.email;
-    if (val) this.replaceErrors("email", await this.client.validateEmail(val));
+    if (val) this.replaceErrors("invite", "email", "Invalid Email", await this.client.validateEmail(val));
   }
 }

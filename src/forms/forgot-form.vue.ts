@@ -1,69 +1,44 @@
 /* istanbul ignore file */
-import { Blocking, BProp, BusyState, Component, Data, Emit, EmitError, On, SProp, Watch } from "@rocketbase/vue-extra-decorators";
-import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonMessage } from "src/components";
-import Vue from "vue";
+import { Blocking, Component, Debounce, Emit, EmitError, mixins, SProp, Watch } from "@rocketbase/vue-extra-decorators";
+import { SkeletonButton, SkeletonForm, SkeletonInput, SkeletonValidated } from "src/components";
 import render from "./forgot-form.vue.html";
+
+export interface ForgotFormData {
+  username: string;
+}
 
 @Component({
   components: {
     SkeletonForm,
     SkeletonInput,
-    SkeletonButton,
-    SkeletonMessage
+    SkeletonButton
   },
   render
 })
-export default class ForgotForm extends Vue {
-  @BProp() public hideTitle!: boolean;
-
-  @Data({ default: {} })
-  private value!: { username: string };
-
-  @Data({ default: [] })
-  private messages!: string[];
-
-  @BusyState()
-  private busy!: boolean;
-
+export default class ForgotForm extends mixins<SkeletonValidated<ForgotFormData>>(SkeletonValidated) {
   @SProp({ default: () => `${location.origin + location.pathname}/verification` })
-  public passwordResetUrl!: string;
+  public resetPasswordUrl!: string;
 
-  private tt(this: any, key: string, fallback: string) {
-    return this.$t ? this.$t(key) || fallback : fallback;
+  @Watch("value.username")
+  private async onUsernameChange() {
+    const val = this.value.username;
+    if (val) {
+      this.errors = {};
+      this.messages = [];
+    }
   }
 
   @Blocking()
   @EmitError("error")
   @Emit("success")
   private async onSubmit() {
-    const { value, passwordResetUrl } = this;
-    const verificationUrl = passwordResetUrl;
+    const { value, resetPasswordUrl } = this;
+    const verificationUrl = resetPasswordUrl;
     const { username } = value;
     await this.$auth.client.forgotPassword({
       [username.includes("@") ? "email" : "username"]: username,
       verificationUrl,
-      passwordResetUrl
+      resetPasswordUrl
     } as any);
-  }
-
-  @Watch("busy")
-  private busyChanged(busy: boolean) {
-    this.$emit("busy", busy);
-  }
-
-  @On("error")
-  private onError({ response }: any) {
-    if (response?.data?.errors) this.messages = Object.values(response.data.errors).flat();
-    else this.messages = [this.tt("skeleton-key.forgot.invalid", "Invalid Username or Email")];
-  }
-
-  @On("success")
-  private onSuccess() {
-    this.clear();
-  }
-
-  public clear() {
-    this.value = {} as any;
-    this.messages = [];
   }
 }

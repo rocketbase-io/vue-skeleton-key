@@ -2,8 +2,9 @@
 import { BProp, ClassesKebap, Component, Data, Prop } from "@rocketbase/vue-extra-decorators";
 import Vue from "vue";
 import render from "./skeleton-form.vue.html";
+import SkeletonMessage from "src/components/skeleton-message.vue";
 
-@Component({ render })
+@Component({ components: { SkeletonMessage }, render })
 export default class SkeletonForm extends Vue {
   @Prop({ literal: {} }) public errors!: Record<string, string[]>;
   @Prop({ literal: [] }) public messages!: string[];
