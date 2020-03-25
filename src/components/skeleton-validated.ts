@@ -5,9 +5,9 @@ import { BProp, BusyState, Component, Data, On, Vue, Watch } from "@rocketbase/v
 @Component({})
 export class SkeletonValidated<T = any> extends Vue {
   @BProp() public hideTitle!: boolean;
-  @Data({ default: [] }) public messages!: string[];
-  @Data({ default: {} }) public errors!: Partial<Record<keyof T | string, string[]>>;
-  @Data({ default: {} }) public value!: T;
+  @Data({ default: () => [] }) public messages!: string[];
+  @Data({ default: () => ({}) }) public errors!: Partial<Record<keyof T | string, string[]>>;
+  @Data({ default: () => ({}) }) public value!: T;
   @BusyState() public busy!: boolean;
 
   public tt(this: any, key: string, fallback: string) {
