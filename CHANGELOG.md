@@ -1,3 +1,17 @@
+## [1.9.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0...v1.9.1) (2020-03-25)
+
+
+### Bug Fixes
+
+* added missing message component ([51a2024](https://github.com/rocketbase-io/vue-skeleton-key/commit/51a2024090994c31e1d1b9ed8fef0a25fc6e4235))
+* added missing verification check ([ae60b8e](https://github.com/rocketbase-io/vue-skeleton-key/commit/ae60b8ede340fd67b9f8a36d869fd8d168ddd889))
+* allow resubmit after change ([4bc7d4c](https://github.com/rocketbase-io/vue-skeleton-key/commit/4bc7d4c48e8423afa844db08418e3ac8af2d90cb))
+* corrected property ([cfafce8](https://github.com/rocketbase-io/vue-skeleton-key/commit/cfafce8e6b5413f0bd0f920ac47b3dd9e4665893))
+* inviteId now with default value uri query-param ([24aab6c](https://github.com/rocketbase-io/vue-skeleton-key/commit/24aab6cb84f13e62b690403ecd29049b9d9a6c78))
+* mixin used same instance for all components ([f61c8a5](https://github.com/rocketbase-io/vue-skeleton-key/commit/f61c8a51bc3f437c6e083d92d708a2b438f46416))
+* resolve circular dependency in skeleton-form ([178168e](https://github.com/rocketbase-io/vue-skeleton-key/commit/178168ec1992b1d1e47f665bfe6e5bf91e4836a4))
+* streamline form validation ([ca25a3e](https://github.com/rocketbase-io/vue-skeleton-key/commit/ca25a3ef939df633bc91beb034dddfd9f9ce04ea))
+
 # [1.9.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.8.2...v1.9.0) (2020-03-20)
 
 
