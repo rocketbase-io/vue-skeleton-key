@@ -6,7 +6,7 @@ const yearRange = date => (new Date().getFullYear() === +date ? date : `${date} 
 const year = yearRange(pkg.since || new Date().getFullYear());
 
 const name = formatModule(pkg.name);
-const deps = pkg.dependencies;
+const deps = Object.extend({}, pkg.dependencies, pkg.peerDependencies);
 const external = Object.keys(deps);
 const globals = Object.fromEntries(Object.keys(deps).map(key => [key, formatModule(key)]));
 

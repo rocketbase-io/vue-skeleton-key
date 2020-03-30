@@ -53,9 +53,10 @@ export function VueSkeletonKey<UserExtension, TokenExtension>(vue: typeof Vue, o
   ["action", "login", "logout", "refresh", "initialized"].forEach(event =>
     auth.on(event as any, (...params: any[]) => {
       const hasData = auth.jwtBundle && auth.user;
+      const hasRefresh = auth.jwtBundle?.refreshToken;
       instance.user = hasData ? auth.userData : null;
       instance.token = hasData ? auth.tokenData : null;
-      instance.refreshToken = hasData ? auth.refreshTokenData : null;
+      instance.refreshToken = hasRefresh ? auth.refreshTokenData : null;
       instance.$emit(event, ...params);
     })
   );
