@@ -43,10 +43,8 @@
   "dependencies": {
     "@babel/types": "^7.8.7",
     "@rocketbase/vue-extra-decorators": "^2.5.0",
+    "@rocketbase/skeleton-key": "*",
     "vue": "^2.6.11"
-  },
-  "peerDependencies": {
-    "@rocketbase/skeleton-key": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
