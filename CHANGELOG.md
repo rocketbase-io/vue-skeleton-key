@@ -1,3 +1,12 @@
+## [1.9.2](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.1...v1.9.2) (2020-03-30)
+
+
+### Bug Fixes
+
+* allow for optional refresh token ([7074376](https://github.com/rocketbase-io/vue-skeleton-key/commit/7074376008aed2d102d874b4946332804931b773))
+* move skeleton key to dependencies ([fb59875](https://github.com/rocketbase-io/vue-skeleton-key/commit/fb59875399e5197fa654d61a8148579f6afc0ea8))
+* pipeline object extend ([ad3adcd](https://github.com/rocketbase-io/vue-skeleton-key/commit/ad3adcdf52c52a43f4b4683a45df24ebaa2262bc))
+
 ## [1.9.1](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.0...v1.9.1) (2020-03-25)
 
 
