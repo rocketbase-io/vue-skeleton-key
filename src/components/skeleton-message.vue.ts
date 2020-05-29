@@ -6,7 +6,7 @@ import render from "./skeleton-message.vue.html";
 @Component({ render })
 export default class SkeletonMessage extends Vue {
   @SProp() public text!: string;
-  @ClassesKebap()
+  @ClassesKebap("skeleton-message")
   private get classes() {
     return {};
   }
