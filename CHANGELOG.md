@@ -1,3 +1,10 @@
+## [1.9.3](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.2...v1.9.3) (2020-05-29)
+
+
+### Bug Fixes
+
+* prevent css class names from changing if the classes are minified ([83434cd](https://github.com/rocketbase-io/vue-skeleton-key/commit/83434cd949f00eb26a8c683e5e914fbd579c1d55))
+
 ## [1.9.2](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.1...v1.9.2) (2020-03-30)
 
 
