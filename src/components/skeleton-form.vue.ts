@@ -13,7 +13,7 @@ export default class SkeletonForm extends Vue {
   @BProp() public busy!: boolean;
   @Data({ sync: "value" }) private localValue!: Record<string, any>;
 
-  @ClassesKebap()
+  @ClassesKebap("skeleton-form")
   private get classes() {
     const { valid, invalid, busy } = this;
     return { valid, invalid, busy };

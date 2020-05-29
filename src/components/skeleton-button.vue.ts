@@ -9,7 +9,7 @@ export default class SkeletonButton extends Vue {
   @BProp() public primary!: boolean;
   @BProp() public submit!: boolean;
 
-  @ClassesKebap()
+  @ClassesKebap("skeleton-button")
   private get classes() {
     const { primary } = this;
     return { primary };

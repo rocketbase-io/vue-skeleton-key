@@ -10,7 +10,7 @@ export default class SkeletonInput extends Vue {
   @SProp({ default: "" }) public label!: string;
   @SProp({ default: "", model: true }) public value!: string;
   @Data({ sync: "value" }) private localValue!: string;
-  @ClassesKebap()
+  @ClassesKebap("skeleton-input")
   private get classes() {
     const { valid, invalid } = this;
     return { invalid, valid };
