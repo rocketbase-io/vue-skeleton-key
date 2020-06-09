@@ -8,11 +8,14 @@
 >
   <template #header>
     <h3 v-if="!hideTitle">{{tt("skeleton-key.forgot.title", "Forgot Password")}}</h3>
+    <slot name="header" />
   </template>
   <template #default="{ value, errors }">
     <skeleton-input :label="tt('skeleton-key.forgot.username', 'Username or Email')" v-model="value.username" :messages="errors.username || errors.email" />
+    <slot />
   </template>
   <template #footer="{ invalid }">
+    <slot name="footer" />
     <skeleton-button :text="tt('skeleton-key.forgot.submit', 'Submit')" primary submit :disabled="invalid" />
   </template>
 </skeleton-form>
