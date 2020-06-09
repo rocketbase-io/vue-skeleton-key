@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.3...v1.10.0) (2020-06-09)
+
+
+### Features
+
+* add slots to form components ([9772c75](https://github.com/rocketbase-io/vue-skeleton-key/commit/9772c758f00ae2d86e54605f713d6a08546aae46))
+
 ## [1.9.3](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.2...v1.9.3) (2020-05-29)
 
 
