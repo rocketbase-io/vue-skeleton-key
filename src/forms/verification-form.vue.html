@@ -8,11 +8,14 @@
 >
   <template #header>
     <h3 v-if="!hideTitle">{{tt("skeleton-key.verification.title", "Verification")}}</h3>
+    <slot name="header" />
   </template>
   <template #default="{ errors }">
     <skeleton-input v-model="verificationLocal" :messages="errors.verification" :label="tt('skeleton-key.verification.token', 'Token')" />
+    <slot />
   </template>
   <template #footer="{ invalid }">
+    <slot name="footer" />
     <skeleton-button :text="tt('skeleton-key.verification.submit', 'Verify')" primary submit :disabled="invalid" />
   </template>
 </skeleton-form>
