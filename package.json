@@ -9,7 +9,8 @@
   "since": "2020",
   "files": [
     "dist",
-    "LICENSE.md"
+    "LICENSE.md",
+    "locales"
   ],
   "scripts": {
     "serve": "webpack-dev-server",
