@@ -1,0 +1,80 @@
+{
+  "skeleton-key": {
+    "change-password": {
+      "title": "Change Password",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "newPassword2": "Repeat Password",
+      "submit": "Change",
+      "invalid": {
+        "newPassword": "Invalid Password",
+        "newPassword2": "Passwords don't match"
+      }
+    },
+    "forgot": {
+      "title": "Forgot Password",
+      "username": "Username or Email",
+      "submit": "Submit"
+    },
+    "invite": {
+      "title": "You have been invited!",
+      "invalid": {
+        "title": "Invalid Invite",
+        "message": "Your invite has expired or is invalid. Please contact an administrator.",
+        "newPassword2": "Passwords don't match",
+        "username": "Invalid Username",
+        "password": "Invalid Password",
+        "email": "Invalid Email"
+      },
+      "username": "Username",
+      "email": "Email",
+      "password": "Password",
+      "password2": "Repeat Password",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "submit": "Register"
+    },
+    "login": {
+      "title": "Login",
+      "username": "Username or Email",
+      "password": "Password",
+      "submit": "Login"
+    },
+    "register": {
+      "title": "Register",
+      "username": "Username",
+      "email": "Email",
+      "password": "Password",
+      "password2": "Repeat Password",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "submit": "Register",
+      "invalid": {
+        "newPassword2": "Passwords don't match",
+        "username": "Invalid Username",
+        "password": "Invalid Password",
+        "email": "Invalid Email"
+      }
+    },
+    "reset": {
+      "title": "Reset Password",
+      "invalid": {
+        "title": "Invalid Reset Link",
+        "message": "Your reset token has expired or is invalid. Please try a reset again.",
+        "password": "Invalid Password",
+        "password2": "Passwords don't match"
+      },
+      "password": "New Password",
+      "password2": "Repeat Password",
+      "submit": "Reset"
+    },
+    "verification": {
+      "title": "Verification",
+      "token": "Token",
+      "submit": "Verify",
+      "invalid": {
+        "verification": "Invalid Verification Token"
+      }
+    }
+  }
+}

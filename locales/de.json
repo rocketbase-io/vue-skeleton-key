@@ -1,0 +1,80 @@
+{
+  "skeleton-key": {
+    "change-password": {
+      "title": "Passwort Ändern",
+      "currentPassword": "Aktuelles Passwort",
+      "newPassword": "Neues Passwort",
+      "newPassword2": "Passwort wiederholen",
+      "submit": "Passwort Ändern",
+      "invalid": {
+        "newPassword": "Ungültiges Passwort",
+        "newPassword2": "Die Passwörter stimmen nicht überein"
+      }
+    },
+    "forgot": {
+      "title": "Passwort Vergessen",
+      "username": "Username oder Email",
+      "submit": "Absenden"
+    },
+    "invite": {
+      "title": "Sie wurden eingeladen!",
+      "invalid": {
+        "title": "Ungültige Einladung",
+        "message": "Ihre Einladung ist ausgelaufen oder ungültig. Bitte wenden Sie sich an einen Administrator.",
+        "newPassword2": "Die Passwörter stimmen nicht überein",
+        "username": "Ungültiger Username",
+        "password": "Ungültiges Passwort",
+        "email": "Ungültige Email"
+      },
+      "username": "Username",
+      "email": "Email",
+      "password": "Passwort",
+      "password2": "Repeat Password",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "submit": "Registrieren"
+    },
+    "login": {
+      "title": "Anmelden",
+      "username": "Username oder Email",
+      "password": "Passwort",
+      "submit": "Anmelden"
+    },
+    "register": {
+      "title": "Registrieren",
+      "username": "Username",
+      "email": "Email",
+      "password": "Passwort",
+      "password2": "Passwort wiederholen",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "submit": "Registrieren",
+      "invalid": {
+        "password2": "Die Passwörter stimmen nicht überein",
+        "username": "Ungültiger Username",
+        "password": "Ungültiges Passwort",
+        "email": "Ungültige Email"
+      }
+    },
+    "reset": {
+      "title": "Passwort zurücksetzen",
+      "invalid": {
+        "title": "Ungültiger Link",
+        "message": "Ihr Link ist ungültig oder ausgelaufen. Bitte versuchen Sie es erneut.",
+        "password": "Ungültiges Passwort",
+        "password2": "Die Passwörter stimmen nicht überein"
+      },
+      "password": "New Password",
+      "password2": "Repeat Password",
+      "submit": "Reset"
+    },
+    "verification": {
+      "title": "Verifizierung",
+      "token": "Token",
+      "submit": "Prüfen",
+      "invalid": {
+        "verification": "Ungültiger Token"
+      }
+    }
+  }
+}
