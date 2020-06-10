@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.10.0...v1.11.0) (2020-06-10)
+
+
+### Features
+
+* add german and english locales ([ce408f7](https://github.com/rocketbase-io/vue-skeleton-key/commit/ce408f7a2f484d2a31b6a40e078a9e6eb5edbaba))
+
 # [1.10.0](https://github.com/rocketbase-io/vue-skeleton-key/compare/v1.9.3...v1.10.0) (2020-06-09)
 
 
