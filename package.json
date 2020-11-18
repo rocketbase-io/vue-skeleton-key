@@ -94,7 +94,7 @@
     "rollup-plugin-ts-paths": "^1.0.4",
     "rollup-plugin-ts-vue": "^0.3.0",
     "rollup-plugin-vue": "^5.1.6",
-    "semantic-release": "^16.0.4",
+    "semantic-release": "^17.2.3",
     "stylus": "^0.54.7",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.3",
