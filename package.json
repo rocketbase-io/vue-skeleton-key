@@ -85,7 +85,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "lint-staged": "^10.0.8",
     "lodash": "^4.17.15",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "prettier": "^1.19.1",
     "rollup": "^1.32.1",
     "rollup-plugin-commonjs": "^10.1.0",
